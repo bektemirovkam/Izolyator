@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_seo_title_descriptions",
+  "info": {
+    "displayName": "title-description",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
