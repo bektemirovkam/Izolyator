@@ -691,7 +691,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     description: Attribute.Text;
-    richText: Attribute.RichText;
     preview: Attribute.Media;
     seo: Attribute.Component<'seo.title-description'>;
     slug: Attribute.UID<'api::category.category', 'name'> & Attribute.Required;
@@ -699,6 +698,21 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'api::category.category',
       'oneToMany',
       'api::product.product'
+    >;
+    parent: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::category.category'
+    >;
+    child_categories: Attribute.Relation<
+      'api::category.category',
+      'manyToOne',
+      'api::category.category'
+    >;
+    categories: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
