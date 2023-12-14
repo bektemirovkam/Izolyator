@@ -778,6 +778,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     preview: Attribute.Media;
     gallery: Attribute.Media;
     vendorCode: Attribute.String & Attribute.Required & Attribute.Unique;
+    description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
