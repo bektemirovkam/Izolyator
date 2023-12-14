@@ -36,12 +36,6 @@
       "repeatable": false,
       "component": "seo.title-description"
     },
-    "top_category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::top-category.top-category",
-      "inversedBy": "categories"
-    },
     "slug": {
       "type": "uid",
       "targetField": "name",

@@ -694,11 +694,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     richText: Attribute.RichText;
     preview: Attribute.Media;
     seo: Attribute.Component<'seo.title-description'>;
-    top_category: Attribute.Relation<
-      'api::category.category',
-      'manyToOne',
-      'api::top-category.top-category'
-    >;
     slug: Attribute.UID<'api::category.category', 'name'> & Attribute.Required;
     products: Attribute.Relation<
       'api::category.category',
@@ -797,47 +792,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
-export interface ApiTopCategoryTopCategory extends Schema.CollectionType {
-  collectionName: 'top_categories';
-  info: {
-    singularName: 'top-category';
-    pluralName: 'top-categories';
-    displayName: 'TopCategory';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    preview: Attribute.Media;
-    description: Attribute.Text;
-    slug: Attribute.UID<'api::top-category.top-category', 'name'> &
-      Attribute.Required;
-    seo: Attribute.Component<'seo.title-description', true>;
-    categories: Attribute.Relation<
-      'api::top-category.top-category',
-      'oneToMany',
-      'api::category.category'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::top-category.top-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::top-category.top-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -857,7 +811,6 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
       'api::product.product': ApiProductProduct;
-      'api::top-category.top-category': ApiTopCategoryTopCategory;
     }
   }
 }
