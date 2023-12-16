@@ -737,7 +737,7 @@ export interface ApiContactContact extends Schema.SingleType {
   info: {
     singularName: 'contact';
     pluralName: 'contacts';
-    displayName: 'Contact';
+    displayName: 'Contact-Information';
     description: '';
   };
   options: {
