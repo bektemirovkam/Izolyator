@@ -1,23 +1,29 @@
 "use client";
-import { Layout, Menu, theme } from "antd";
-const { Header } = Layout;
+import { Grid, Layout, Menu, MenuProps, theme } from "antd";
 import Link from "next/link";
 import Image from "next/image";
-import { ItemType, MenuItemType } from "antd/es/menu/hooks/useItems";
+import { usePathname } from "next/navigation";
 
-const navbarItems: ItemType<MenuItemType>[] = [
-  "Главная",
-  "Каталог",
-  "Доставка и оплата",
-  "Контакты",
-].map((i) => ({ key: i, label: i }));
+const { Header } = Layout;
+const { useBreakpoint } = Grid;
 
-const defaultSelectedKeys = ["1"];
+const navbarItems: MenuProps["items"] = [
+  { title: "Главная", link: "/" },
+  { title: "Каталог", link: "/catalog" },
+  { title: "Доставка и оплата", link: "/delivery" },
+  { title: "Контакты", link: "/contacts" },
+].map(({ title, link }) => ({
+  key: link,
+  label: <Link href={link}>{title}</Link>,
+}));
 
 export const AppHeader: React.FC = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const pathname = usePathname();
+  const { sm, md } = useBreakpoint();
 
   return (
     <Layout>
@@ -26,13 +32,14 @@ export const AppHeader: React.FC = () => {
           background: colorBgContainer,
           display: "flex",
           alignItems: "center",
+          padding: md ? "0 50px" : "0 20px",
         }}
       >
         <Link
           href="/"
           style={{
             marginRight: 20,
-            display: "flex",
+            display: sm ? "flex" : "none",
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -46,12 +53,14 @@ export const AppHeader: React.FC = () => {
         </Link>
         <Menu
           mode="horizontal"
-          defaultSelectedKeys={defaultSelectedKeys}
+          defaultSelectedKeys={[pathname]}
           items={navbarItems}
           style={{
             background: colorBgContainer,
             flex: 1,
-            justifyContent: "flex-end",
+            justifyContent: sm ? "flex-end" : "center",
+            fontSize: sm ? 16 : 14,
+            width: "100%",
           }}
         />
       </Header>
