@@ -24,7 +24,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ConfigProvider theme={theme}>
             <AppHeader />
-            {/* {children} */}
+            {children}
           </ConfigProvider>
         </StyledComponentsRegistry>
       </body>

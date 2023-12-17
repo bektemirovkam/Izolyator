@@ -1,8 +1,16 @@
 import { Button } from "antd";
 
-export default function Home() {
+const delay = new Promise((res) => {
+  setTimeout(() => res(1231), 3000);
+});
+
+export default async function Home() {
+  const a = await delay;
+
+  console.log(a);
+
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <Button type="primary">Button</Button>
     </div>
   );
