@@ -16,22 +16,24 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import Image from "next/image";
 
+import styles from "./navbar.module.scss";
+
 export const Navbar = () => {
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+      <NavbarContent className={styles.navbarContent} justify="start">
+        <NavbarBrand as="li" className={styles.navbarBrand}>
+          <NextLink className={styles.logoLink} href="/">
             <Image src="/logo.png" alt="Промоставки" width={200} height={30} />
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden md:flex gap-4 justify-start ml-2">
+        <ul className={styles.navMenuDesktop}>
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:foreground data-[active=true]:font-bold"
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 // color="foreground"
                 href={item.href}
@@ -43,12 +45,15 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
+      <NavbarContent
+        className={clsx("md:hidden", styles.navbarTogglerWrapper)}
+        justify="end"
+      >
         <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
+        <div className={styles.navMenuMobile}>
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link color="foreground" href={item.href} size="lg">

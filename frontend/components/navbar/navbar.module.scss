@@ -1,0 +1,23 @@
+.navbarContent {
+  @apply basis-1/5 sm:basis-full;
+}
+
+.navbarBrand {
+  @apply gap-3 max-w-fit;
+}
+
+.logoLink {
+  @apply flex justify-start items-center gap-1;
+}
+
+.navMenuDesktop {
+  @apply hidden md:flex gap-4 justify-start ml-2;
+}
+
+.navMenuMobile {
+  @apply mx-4 mt-2 flex flex-col gap-2;
+}
+
+.navbarTogglerWrapper {
+  @apply basis-1 pl-4;
+}
