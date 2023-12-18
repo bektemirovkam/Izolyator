@@ -51,15 +51,8 @@
     },
     "child_categories": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "categories"
-    },
-    "categories": {
-      "type": "relation",
       "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "child_categories"
+      "target": "api::category.category"
     }
   }
 }

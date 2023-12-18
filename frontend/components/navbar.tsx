@@ -30,7 +30,6 @@ export const Navbar = () => {
   return (
     <NextUINavbar
       maxWidth="xl"
-      position="sticky"
       classNames={{
         item: [
           "flex",
@@ -53,7 +52,7 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <Link className="flex justify-start items-center gap-1" href="/">
-            <Image src="/logo.png" alt="Промоставки" width={320} height={201} />
+            <Image src="/logo.png" alt="Промоставки" width={100} height={40} />
           </Link>
         </NavbarBrand>
         <ul className="hidden md:flex gap-4 justify-start ml-2">

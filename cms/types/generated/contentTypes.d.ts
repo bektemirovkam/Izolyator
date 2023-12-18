@@ -706,11 +706,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     >;
     child_categories: Attribute.Relation<
       'api::category.category',
-      'manyToOne',
-      'api::category.category'
-    >;
-    categories: Attribute.Relation<
-      'api::category.category',
       'oneToMany',
       'api::category.category'
     >;
