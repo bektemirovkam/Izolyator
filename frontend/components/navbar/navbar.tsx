@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -12,34 +14,57 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
-import NextLink from "next/link";
 import clsx from "clsx";
 import Image from "next/image";
 
 import styles from "./navbar.module.scss";
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
+  const pathname = usePathname();
+
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar
+      maxWidth="xl"
+      position="sticky"
+      classNames={{
+        item: [
+          "flex",
+          "relative",
+          "h-full",
+          "items-center",
+          "data-[active=true]:after:content-['']",
+          "data-[active=true]:after:absolute",
+          "data-[active=true]:after:-bottom-2",
+          "data-[active=true]:after:left-0",
+          "data-[active=true]:after:right-0",
+          "data-[active=true]:after:h-[2px]",
+          "data-[active=true]:after:rounded-[2px]",
+          "data-[active=true]:after:bg-brand-color",
+        ],
+      }}
+    >
       <NavbarContent className={styles.navbarContent} justify="start">
         <NavbarBrand as="li" className={styles.navbarBrand}>
-          <NextLink className={styles.logoLink} href="/">
-            <Image src="/logo.png" alt="Промоставки" width={200} height={30} />
-          </NextLink>
+          <Link className={styles.logoLink} href="/">
+            <Image src="/logo.png" alt="Промоставки" width={320} height={201} />
+          </Link>
         </NavbarBrand>
         <ul className={styles.navMenuDesktop}>
           {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
+            <NavbarItem key={item.href} isActive={item.href === pathname}>
+              <Link
                 className={clsx(
+                  "font-normal",
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                  {
+                    "text-brand-color": item.href === pathname,
+                  }
                 )}
-                // color="foreground"
                 href={item.href}
               >
                 {item.label}
-              </NextLink>
+              </Link>
             </NavbarItem>
           ))}
         </ul>

@@ -9,7 +9,11 @@ module.exports = {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'brand-color': '#52c41a',
+      }
+    },
   },
   darkMode: "class",
   plugins: [nextui()],
