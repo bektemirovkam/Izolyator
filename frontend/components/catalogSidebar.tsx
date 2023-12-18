@@ -1,6 +1,10 @@
 "use client";
 
-interface CatalogSidebarProps {}
+import { Category } from "@/types/category";
+
+interface CatalogSidebarProps {
+  categories: Category[];
+}
 
 export const CatalogSidebar = ({}: CatalogSidebarProps) => {
   return null;

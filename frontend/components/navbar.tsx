@@ -18,9 +18,14 @@ import clsx from "clsx";
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const pathname = usePathname();
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <NextUINavbar
@@ -42,6 +47,8 @@ export const Navbar = () => {
           "data-[active=true]:after:bg-brand-color",
         ],
       }}
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
@@ -77,7 +84,13 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link color="foreground" href={item.href} size="lg">
+              <Link
+                color="foreground"
+                href={item.href}
+                size="lg"
+                onClick={closeMenu}
+                className="w-full"
+              >
                 {item.label}
               </Link>
             </NavbarMenuItem>
