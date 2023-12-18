@@ -1,13 +1,11 @@
-export default function AboutLayout({
-	children,
+export default function CatalogLayout({
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
-		<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-			<div className="inline-block max-w-lg text-center justify-center">
-				{children}
-			</div>
-		</section>
-	);
+  return (
+    <section className="flex flex-col items-center justify-center mt-4 h-full">
+      <div className="container mx-auto px-4 border flex-auto">{children}</div>
+    </section>
+  );
 }

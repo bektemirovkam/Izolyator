@@ -1,9 +1,11 @@
-import { title } from "@/components/primitives";
+import { CatalogSidebar } from "@/components/catalogSidebar";
+import { CategoryInfo } from "@/components/categoryInfo";
 
-export default function AboutPage() {
-	return (
-		<div>
-			<h1 className={title()}>About</h1>
-		</div>
-	);
+export default function CatalogPage() {
+  return (
+    <div className="flex items-center gap-4">
+      <CatalogSidebar />
+      <CategoryInfo />
+    </div>
+  );
 }

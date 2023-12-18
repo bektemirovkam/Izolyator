@@ -17,7 +17,6 @@ import { siteConfig } from "@/config/site";
 import clsx from "clsx";
 import Image from "next/image";
 
-import styles from "./navbar.module.scss";
 import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
@@ -44,13 +43,13 @@ export const Navbar = () => {
         ],
       }}
     >
-      <NavbarContent className={styles.navbarContent} justify="start">
-        <NavbarBrand as="li" className={styles.navbarBrand}>
-          <Link className={styles.logoLink} href="/">
+      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+        <NavbarBrand as="li" className="gap-3 max-w-fit">
+          <Link className="flex justify-start items-center gap-1" href="/">
             <Image src="/logo.png" alt="Промоставки" width={320} height={201} />
           </Link>
         </NavbarBrand>
-        <ul className={styles.navMenuDesktop}>
+        <ul className="hidden md:flex gap-4 justify-start ml-2">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href} isActive={item.href === pathname}>
               <Link
@@ -70,15 +69,12 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent
-        className={clsx("md:hidden", styles.navbarTogglerWrapper)}
-        justify="end"
-      >
+      <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
         <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarMenu>
-        <div className={styles.navMenuMobile}>
+        <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link color="foreground" href={item.href} size="lg">
