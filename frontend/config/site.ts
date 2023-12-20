@@ -13,7 +13,7 @@ export const siteConfig = {
       href: "/catalog",
     },
     {
-      label: "Доставка и оплата",
+      label: "Оплата и доставка",
       href: "/delivery",
     },
     {
@@ -31,7 +31,7 @@ export const siteConfig = {
       href: "/catalog",
     },
     {
-      label: "Доставка и оплата",
+      label: "Оплата и доставка",
       href: "/delivery",
     },
     {

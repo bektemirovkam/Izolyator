@@ -16,7 +16,13 @@ export const getCategoryInfo = async (slug: string) => {
   return data;
 };
 
-export const getTopCategories = async () => {
+export const getCategoriesTree = async () => {
+  const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
+    "categories?filters[parent][id][$null]=true&populate[child_categories][populate]=child_categories"
+  );
+  return data;
+};
+export const getTopListCategories = async () => {
   const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
     "categories?filters[parent][id][$null]=true&populate=preview"
   );

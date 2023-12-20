@@ -1,15 +1,15 @@
 import { CatalogSidebar } from "@/components/catalogSidebar";
-import { getCategories, getTopCategories } from "@/services/categories";
+import { getCategoriesTree } from "@/services/categories";
 
 export default async function CatalogLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const categories = await getCategories();
+  const categories = await getCategoriesTree();
 
   return (
-    <section className="flex flex-col items-center justify-center mt-4 h-full">
+    <section className="flex flex-col items-center justify-center py-4">
       <div className="flex flex-auto w-full">
         <div className="basis-80">
           <CatalogSidebar categories={categories.data} />
