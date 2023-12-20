@@ -19,8 +19,14 @@ import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Contacts } from "@/types/contacts";
+import { EmailIcon, PhoneIcon } from "@/components/icons";
 
-export const Navbar = () => {
+interface NavbarProps {
+  contacts: Contacts;
+}
+
+export const Navbar = ({ contacts }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const pathname = usePathname();
@@ -45,12 +51,13 @@ export const Navbar = () => {
           "data-[active=true]:after:rounded-[2px]",
           "data-[active=true]:after:bg-brand-color",
         ],
+        wrapper: ["p-0", "border"],
       }}
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
+        <NavbarBrand as="li" className="max-w-fit">
           <Link className="flex justify-start items-center gap-1" href="/">
             <Image src="/logo.png" alt="Промоставки" width={100} height={40} />
           </Link>
@@ -73,6 +80,29 @@ export const Navbar = () => {
             </NavbarItem>
           ))}
         </ul>
+      </NavbarContent>
+
+      <NavbarContent className="hidden md:flex" justify="end">
+        <NavbarItem className="mr-3">
+          <Link
+            aria-label="Телефон"
+            href={`tel:${contacts.attributes.phone}`}
+            className="text-foreground lg:text-base sm: text-xs"
+          >
+            <PhoneIcon size={24} fill="rgb(82, 196, 26)" className="mr-2" />
+            <span>{contacts.attributes.phone}</span>
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            aria-label="Email"
+            href={`mailto:${contacts.attributes.email}`}
+            className="text-foreground lg:text-base sm: text-xs"
+          >
+            <EmailIcon size={24} fill="rgb(82, 196, 26)" className="mr-2" />
+            <span>{contacts.attributes.email}</span>
+          </Link>
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="md:hidden basis-1 pl-4" justify="end">

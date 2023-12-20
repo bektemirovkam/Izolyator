@@ -5,6 +5,7 @@ import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
+import { getContacts } from "@/services/contacts";
 
 export const metadata: Metadata = {
   title: {
@@ -19,11 +20,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const data = await getContacts();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -35,7 +38,7 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen container mx-auto pb-14">
-            <Navbar />
+            <Navbar contacts={data.data} />
             {children}
           </div>
         </Providers>
