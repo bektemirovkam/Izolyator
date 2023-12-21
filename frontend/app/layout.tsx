@@ -37,7 +37,7 @@ export default async function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen container mx-auto pb-14">
+          <div className="relative flex flex-col h-screen px-4">
             <Navbar contacts={data.data} />
             {children}
           </div>

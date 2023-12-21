@@ -5,5 +5,6 @@ export interface Contacts {
     phone: string;
     address: string;
     operatingMode: string;
+    whatsapp: string;
   };
 }

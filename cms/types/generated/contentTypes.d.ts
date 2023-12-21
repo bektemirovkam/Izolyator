@@ -743,6 +743,7 @@ export interface ApiContactContact extends Schema.SingleType {
     phone: Attribute.String;
     address: Attribute.String;
     operatingMode: Attribute.Text;
+    whatsapp: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -20,7 +20,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Contacts } from "@/types/contacts";
-import { EmailIcon, PhoneIcon } from "@/components/icons";
+import { EmailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 interface NavbarProps {
   contacts: Contacts;
@@ -51,15 +51,15 @@ export const Navbar = ({ contacts }: NavbarProps) => {
           "data-[active=true]:after:rounded-[2px]",
           "data-[active=true]:after:bg-brand-color",
         ],
-        wrapper: ["p-0", "border"],
+        wrapper: ["p-0 border-b-2 max-w-none"],
       }}
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="max-w-fit">
+        <NavbarBrand as="li" className="w-80 overflow-hidden">
           <Link className="flex justify-start items-center gap-1" href="/">
-            <Image src="/logo.png" alt="Промоставки" width={100} height={40} />
+            <Image src="/logo.png" alt="Промоставки" width={240} height={40} />
           </Link>
         </NavbarBrand>
         <ul className="hidden md:flex gap-4 justify-start ml-2">
@@ -87,9 +87,9 @@ export const Navbar = ({ contacts }: NavbarProps) => {
           <Link
             aria-label="Телефон"
             href={`tel:${contacts.attributes.phone}`}
-            className="text-foreground lg:text-base sm: text-xs"
+            className="text-foreground text-xs"
           >
-            <PhoneIcon size={24} fill="rgb(82, 196, 26)" className="mr-2" />
+            <PhoneIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
             <span>{contacts.attributes.phone}</span>
           </Link>
         </NavbarItem>
@@ -97,10 +97,20 @@ export const Navbar = ({ contacts }: NavbarProps) => {
           <Link
             aria-label="Email"
             href={`mailto:${contacts.attributes.email}`}
-            className="text-foreground lg:text-base sm: text-xs"
+            className="text-foreground text-xs"
           >
-            <EmailIcon size={24} fill="rgb(82, 196, 26)" className="mr-2" />
+            <EmailIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
             <span>{contacts.attributes.email}</span>
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            aria-label="Whatsapp"
+            href={`https://wa.me/${contacts.attributes.whatsapp}`}
+            className="text-foreground text-xs"
+          >
+            <WhatsAppIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
+            <span>{contacts.attributes.whatsapp}</span>
           </Link>
         </NavbarItem>
       </NavbarContent>

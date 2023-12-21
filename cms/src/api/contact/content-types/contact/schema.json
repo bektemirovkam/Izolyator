@@ -23,6 +23,9 @@
     },
     "operatingMode": {
       "type": "text"
+    },
+    "whatsapp": {
+      "type": "string"
     }
   }
 }
