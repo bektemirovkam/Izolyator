@@ -10,6 +10,7 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
+import { EmailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 import { link as linkStyles } from "@nextui-org/theme";
 
@@ -20,7 +21,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Contacts } from "@/types/contacts";
-import { EmailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
 
 interface NavbarProps {
   contacts: Contacts;
@@ -56,63 +56,71 @@ export const Navbar = ({ contacts }: NavbarProps) => {
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="w-80 overflow-hidden">
+      <NavbarContent className="basis-1/5 sm:basis-full">
+        <NavbarBrand as="li" className="basis-60 xl:basis-80 flex-grow-0">
           <Link className="flex justify-start items-center gap-1" href="/">
             <Image src="/logo.png" alt="Промоставки" width={240} height={40} />
           </Link>
         </NavbarBrand>
-        <ul className="hidden md:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href} isActive={item.href === pathname}>
+        <ul
+          className="flex flex-auto justify-between ml-5 xl:ml-0"
+          // justify="center"
+        >
+          <ul className="hidden md:flex gap-4 justify-start ml-2">
+            {siteConfig.navItems.map((item) => (
+              <NavbarItem key={item.href} isActive={item.href === pathname}>
+                <Link
+                  className={clsx(
+                    "font-normal",
+                    linkStyles({ color: "foreground" }),
+                    {
+                      "text-brand-color": item.href === pathname,
+                    }
+                  )}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              </NavbarItem>
+            ))}
+          </ul>
+          <ul className="hidden md:flex gap-2 justify-start ml-2">
+            <NavbarItem className="mr-3">
               <Link
-                className={clsx(
-                  "font-normal",
-                  linkStyles({ color: "foreground" }),
-                  {
-                    "text-brand-color": item.href === pathname,
-                  }
-                )}
-                href={item.href}
+                aria-label="Телефон"
+                href={`tel:${contacts.attributes.phone}`}
+                className="text-foreground text-xs"
               >
-                {item.label}
+                <PhoneIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
+                <span>{contacts.attributes.phone}</span>
               </Link>
             </NavbarItem>
-          ))}
+            <NavbarItem>
+              <Link
+                aria-label="Whatsapp"
+                href={`https://wa.me/${contacts.attributes.whatsapp}`}
+                className="text-foreground text-xs"
+              >
+                <WhatsAppIcon
+                  size={20}
+                  fill="rgb(82, 196, 26)"
+                  className="mr-2"
+                />
+                <span>{contacts.attributes.whatsapp}</span>
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link
+                aria-label="Email"
+                href={`mailto:${contacts.attributes.email}`}
+                className="text-foreground text-xs"
+              >
+                <EmailIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
+                <span>{contacts.attributes.email}</span>
+              </Link>
+            </NavbarItem>
+          </ul>
         </ul>
-      </NavbarContent>
-
-      <NavbarContent className="hidden md:flex" justify="end">
-        <NavbarItem className="mr-3">
-          <Link
-            aria-label="Телефон"
-            href={`tel:${contacts.attributes.phone}`}
-            className="text-foreground text-xs"
-          >
-            <PhoneIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
-            <span>{contacts.attributes.phone}</span>
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            aria-label="Email"
-            href={`mailto:${contacts.attributes.email}`}
-            className="text-foreground text-xs"
-          >
-            <EmailIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
-            <span>{contacts.attributes.email}</span>
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            aria-label="Whatsapp"
-            href={`https://wa.me/${contacts.attributes.whatsapp}`}
-            className="text-foreground text-xs"
-          >
-            <WhatsAppIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
-            <span>{contacts.attributes.whatsapp}</span>
-          </Link>
-        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="md:hidden basis-1 pl-4" justify="end">

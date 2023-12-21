@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
 import { getContacts } from "@/services/contacts";
+import { ContactsBar } from "@/components/contactsBar";
 
 export const metadata: Metadata = {
   title: {
@@ -39,6 +40,7 @@ export default async function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen px-4">
             <Navbar contacts={data.data} />
+            {/* <ContactsBar contacts={data.data} /> */}
             {children}
           </div>
         </Providers>
