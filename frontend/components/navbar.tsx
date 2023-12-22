@@ -62,11 +62,8 @@ export const Navbar = ({ contacts }: NavbarProps) => {
             <Image src="/logo.png" alt="Промоставки" width={240} height={40} />
           </Link>
         </NavbarBrand>
-        <ul
-          className="flex flex-auto justify-between ml-5 xl:ml-0"
-          // justify="center"
-        >
-          <ul className="hidden md:flex gap-4 justify-start ml-2">
+        <ul className="flex flex-auto justify-between ml-5 xl:ml-0">
+          <ul className="hidden xl:flex gap-4 justify-start ml-2">
             {siteConfig.navItems.map((item) => (
               <NavbarItem key={item.href} isActive={item.href === pathname}>
                 <Link
@@ -84,7 +81,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
               </NavbarItem>
             ))}
           </ul>
-          <ul className="hidden md:flex gap-2 justify-start ml-2">
+          <ul className="hidden md:flex justify-start gap-2 ml-2">
             <NavbarItem className="mr-3">
               <Link
                 aria-label="Телефон"
@@ -123,9 +120,9 @@ export const Navbar = ({ contacts }: NavbarProps) => {
         </ul>
       </NavbarContent>
 
-      <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
+      <ul className="xl:hidden basis-1 pl-4 justify-end flex-grow-0">
         <NavbarMenuToggle />
-      </NavbarContent>
+      </ul>
 
       <NavbarMenu>
         <div className="mx-4 mt-2 flex flex-col gap-2">
@@ -142,6 +139,45 @@ export const Navbar = ({ contacts }: NavbarProps) => {
               </Link>
             </NavbarMenuItem>
           ))}
+          <div className="flex md:hidden flex-col pt-4 mt-4 border-t-1 border-default-200">
+            <NavbarMenuItem className="mr-3">
+              <Link
+                aria-label="Телефон"
+                href={`tel:${contacts.attributes.phone}`}
+                className="text-foreground text-xs"
+                onClick={closeMenu}
+              >
+                <PhoneIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
+                <span>{contacts.attributes.phone}</span>
+              </Link>
+            </NavbarMenuItem>
+            <NavbarMenuItem>
+              <Link
+                aria-label="Whatsapp"
+                href={`https://wa.me/${contacts.attributes.whatsapp}`}
+                className="text-foreground text-xs"
+                onClick={closeMenu}
+              >
+                <WhatsAppIcon
+                  size={20}
+                  fill="rgb(82, 196, 26)"
+                  className="mr-2"
+                />
+                <span>{contacts.attributes.whatsapp}</span>
+              </Link>
+            </NavbarMenuItem>
+            <NavbarMenuItem>
+              <Link
+                aria-label="Email"
+                href={`mailto:${contacts.attributes.email}`}
+                className="text-foreground text-xs"
+                onClick={closeMenu}
+              >
+                <EmailIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
+                <span>{contacts.attributes.email}</span>
+              </Link>
+            </NavbarMenuItem>
+          </div>
         </div>
       </NavbarMenu>
     </NextUINavbar>

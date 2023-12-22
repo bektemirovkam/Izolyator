@@ -1,12 +1,11 @@
 "use client";
 
 import { Category } from "@/types/category";
-import { Listbox, ListboxItem, ListboxSection } from "@nextui-org/react";
+import { Accordion, AccordionItem } from "@nextui-org/react";
 import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { ReactNode, useMemo } from "react";
 
 interface CatalogSidebarProps {
   categories: Category[];
@@ -23,8 +22,6 @@ const CategorySideBarItem = ({
   pathname,
   isTop,
 }: CategorySideBarItemProps) => {
-  console.log("pathname --> ", pathname);
-
   return (
     <li
       className={clsx({
@@ -62,20 +59,27 @@ export const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full">
-      <h2 className="uppercase p-2 text-white bg-brand-color">
-        Каталог продукции
-      </h2>
-      <ul className=" border-small p-2">
-        {categories.map((c) => (
-          <CategorySideBarItem
-            category={c}
-            pathname={pathname}
-            key={c.id}
-            isTop
-          />
-        ))}
-      </ul>
-    </div>
+    <Accordion className="w-full px-0" selectedKeys={["1"]}>
+      <AccordionItem
+        hideIndicator
+        classNames={{
+          title: "uppercase p-2 text-white bg-brand-color",
+          trigger: "p-0",
+        }}
+        title="Каталог продукции"
+        key="1"
+      >
+        <ul className=" border-small p-2">
+          {categories.map((c) => (
+            <CategorySideBarItem
+              category={c}
+              pathname={pathname}
+              key={c.id}
+              isTop
+            />
+          ))}
+        </ul>
+      </AccordionItem>
+    </Accordion>
   );
 };

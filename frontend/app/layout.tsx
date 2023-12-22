@@ -7,6 +7,7 @@ import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
 import { getContacts } from "@/services/contacts";
 import { ContactsBar } from "@/components/contactsBar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -42,6 +43,7 @@ export default async function RootLayout({
             <Navbar contacts={data.data} />
             {/* <ContactsBar contacts={data.data} /> */}
             {children}
+            <Footer />
           </div>
         </Providers>
       </body>

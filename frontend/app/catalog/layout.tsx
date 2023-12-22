@@ -9,7 +9,7 @@ export default async function CatalogLayout({
   const categories = await getCategoriesTree();
 
   return (
-    <section className="flex flex-col items-center justify-center py-4">
+    <section className="flex flex-col items-center justify-center py-4 flex-auto">
       <div className="flex flex-auto w-full">
         <div className="basis-80">
           <CatalogSidebar categories={categories.data} />
