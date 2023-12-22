@@ -64,7 +64,7 @@ export const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
         hideIndicator
         classNames={{
           title: "uppercase p-2 text-white bg-brand-color",
-          trigger: "p-0",
+          trigger: "p-0 mb-4",
         }}
         title="Каталог продукции"
         key="1"
