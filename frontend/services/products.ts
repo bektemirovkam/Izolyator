@@ -3,14 +3,14 @@ import { MetaStrapiInfo } from "@/types";
 import { Product } from "@/types/product";
 
 export const getProductsByCategorySlug = async (categorySlug: string) => {
-  const { data } = await axios.post<{ data: Product[]; meta: MetaStrapiInfo }>(
+  const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
     `products?category.slug=${categorySlug}`
   );
   return data;
 };
 
 export const getProductInfo = async (slug: string) => {
-  const { data } = await axios.post<{ data: Product[]; meta: MetaStrapiInfo }>(
+  const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
     `products?filters[slug]=${slug}`
   );
   return data;

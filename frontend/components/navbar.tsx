@@ -65,13 +65,23 @@ export const Navbar = ({ contacts }: NavbarProps) => {
         <ul className="flex flex-auto justify-between ml-5 xl:ml-0">
           <ul className="hidden xl:flex gap-4 justify-start ml-2">
             {siteConfig.navItems.map((item) => (
-              <NavbarItem key={item.href} isActive={item.href === pathname}>
+              <NavbarItem
+                key={item.href}
+                isActive={
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.includes(item.href)
+                }
+              >
                 <Link
                   className={clsx(
                     "font-normal",
                     linkStyles({ color: "foreground" }),
                     {
-                      "text-brand-color": item.href === pathname,
+                      "text-brand-color":
+                        item.href === "/"
+                          ? pathname === "/"
+                          : pathname.includes(item.href),
                     }
                   )}
                   href={item.href}

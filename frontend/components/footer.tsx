@@ -2,7 +2,6 @@
 
 import { siteConfig } from "@/config/site";
 import { Link } from "@nextui-org/link";
-import { NavbarContent, NavbarItem } from "@nextui-org/navbar";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
@@ -20,7 +19,10 @@ export const Footer = () => {
                 "font-normal",
                 linkStyles({ color: "foreground" }),
                 {
-                  "text-brand-color": item.href === pathname,
+                  "text-brand-color":
+                    item.href === "/"
+                      ? pathname === "/"
+                      : pathname.includes(item.href),
                 }
               )}
               href={item.href}
