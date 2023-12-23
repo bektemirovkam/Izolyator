@@ -7,7 +7,7 @@ export default async function CatalogPage() {
   const topCategories = await getTopListCategories();
 
   return (
-    <div className="flex flex-col pl-4">
+    <div className="flex flex-col xl:pl-4">
       <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
         Основные категории
       </h1>

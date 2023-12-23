@@ -10,8 +10,8 @@ export default async function CatalogLayout({
 
   return (
     <section className="flex flex-col items-center justify-center py-4 flex-auto">
-      <div className="flex flex-auto w-full">
-        <div className="basis-80 flex-shrink-0">
+      <div className="flex flex-col flex-auto xl:flex-row w-full">
+        <div className="xl:basis-80 flex-shrink-0">
           <CatalogSidebar categories={categories.data} />
         </div>
         <div className="flex-auto">{children}</div>

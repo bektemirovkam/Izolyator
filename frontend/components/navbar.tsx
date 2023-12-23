@@ -143,7 +143,17 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 href={item.href}
                 size="lg"
                 onClick={closeMenu}
-                className="w-full"
+                className={clsx(
+                  "font-normal",
+                  "w-full",
+                  linkStyles({ color: "foreground" }),
+                  {
+                    "text-brand-color":
+                      item.href === "/"
+                        ? pathname === "/"
+                        : pathname.includes(item.href),
+                  }
+                )}
               >
                 {item.label}
               </Link>

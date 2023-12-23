@@ -6,6 +6,7 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface CatalogSidebarProps {
   categories: Category[];
@@ -57,9 +58,13 @@ const CategorySideBarItem = ({
 
 export const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
   const pathname = usePathname();
+  const collapsed = useMediaQuery("(max-width: 1280px)");
 
   return (
-    <Accordion className="w-full px-0" selectedKeys={["1"]}>
+    <Accordion
+      className="w-full px-0"
+      selectedKeys={collapsed ? undefined : ["1"]}
+    >
       <AccordionItem
         hideIndicator
         classNames={{

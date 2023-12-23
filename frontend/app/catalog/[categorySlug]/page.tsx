@@ -13,7 +13,7 @@ export default async function CategoryInfoPage({
 
   if (categoryInfo.data[0].attributes.child_categories?.data.length) {
     return (
-      <div className="flex flex-col pl-4">
+      <div className="flex flex-col xl:pl-4">
         <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
           {categoryInfo.data[0].attributes.name}
         </h1>
@@ -31,7 +31,7 @@ export default async function CategoryInfoPage({
   );
 
   return (
-    <div className="flex flex-col pl-4">
+    <div className="flex flex-col xl:pl-4">
       <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
         {categoryInfo.data[0].attributes.name}
       </h1>

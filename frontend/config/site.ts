@@ -36,7 +36,7 @@ export const siteConfig = {
     },
     {
       label: "Поиск",
-      href: "/catalog",
+      href: "/search",
     },
     {
       label: "Оплата и доставка",
