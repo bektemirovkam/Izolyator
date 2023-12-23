@@ -65,11 +65,12 @@ export const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
         classNames={{
           title: "uppercase p-2 text-white bg-brand-color",
           trigger: "p-0 mb-4",
+          content: "shadow-lg",
         }}
         title="Каталог продукции"
         key="1"
       >
-        <ul className=" border-small p-2">
+        <ul className="border-small p-2 shadow-medium">
           {categories.map((c) => (
             <CategorySideBarItem
               category={c}

@@ -8,7 +8,9 @@ export default async function CatalogPage() {
 
   return (
     <div className="flex flex-col pl-4">
-      <h1 className={clsx(title(), "mb-5")}>Основные категории</h1>
+      <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
+        Основные категории
+      </h1>
       <CategoriesList categories={topCategories.data} />
     </div>
   );

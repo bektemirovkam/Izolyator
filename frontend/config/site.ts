@@ -13,6 +13,10 @@ export const siteConfig = {
       href: "/catalog",
     },
     {
+      label: "Поиск",
+      href: "/search",
+    },
+    {
       label: "Оплата и доставка",
       href: "/delivery",
     },
@@ -28,6 +32,10 @@ export const siteConfig = {
     },
     {
       label: "Каталог",
+      href: "/catalog",
+    },
+    {
+      label: "Поиск",
       href: "/catalog",
     },
     {

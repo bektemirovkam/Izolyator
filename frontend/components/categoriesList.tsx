@@ -1,10 +1,12 @@
 import { Category } from "@/types/category";
 import {
+  Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   Image,
+  Link,
 } from "@nextui-org/react";
 
 interface CategoriesListProps {
@@ -16,19 +18,24 @@ export const CategoriesList = ({ categories }: CategoriesListProps) => {
     <div className="flex flex-wrap gap-3">
       {categories.map((c) => {
         return (
-          <Card shadow="sm" key={c.id} className="border-none" isPressable>
-            <CardBody className="overflow-visible p-0">
+          <Link href={`/catalog/${c.attributes.slug}`} key={c.id}>
+            <Card
+              isFooterBlurred
+              radius="lg"
+              className="border-none rounded-none"
+            >
               <Image
-                shadow="sm"
-                alt={c.attributes.name}
-                className="object-cover h-[360px] w-[360px]"
-                src={c.attributes.preview?.data.attributes.formats.small?.url}
+                alt="Woman listing to music"
+                className="object-cover"
+                height={200}
+                src={c.attributes.preview?.data.attributes.formats.medium?.url}
+                width={200}
               />
-            </CardBody>
-            <CardFooter className="text-small justify-between">
-              <b>{c.attributes.name}</b>
-            </CardFooter>
-          </Card>
+              <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                <p className="text-center">{c.attributes.name}</p>
+              </CardFooter>
+            </Card>
+          </Link>
         );
       })}
     </div>
