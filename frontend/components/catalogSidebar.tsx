@@ -2,11 +2,13 @@
 
 import { Category } from "@/types/category";
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import dynamic from "next/dynamic";
 import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useState } from "react";
 
 interface CatalogSidebarProps {
   categories: Category[];
@@ -56,7 +58,7 @@ const CategorySideBarItem = ({
   );
 };
 
-export const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
+const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
   const pathname = usePathname();
   const collapsed = useMediaQuery("(max-width: 1280px)");
 
@@ -89,3 +91,5 @@ export const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
     </Accordion>
   );
 };
+
+export default dynamic(() => Promise.resolve(CatalogSidebar), { ssr: false });

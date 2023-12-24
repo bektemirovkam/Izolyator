@@ -1,4 +1,4 @@
-import { CatalogSidebar } from "@/components/catalogSidebar";
+import CatalogSidebar from "@/components/catalogSidebar";
 import { getCategoriesTree } from "@/services/categories";
 
 export default async function CatalogLayout({
