@@ -1,5 +1,6 @@
 import { CategoriesList } from "@/components/categoriesList";
 import { title } from "@/components/primitives";
+import { ProductsList } from "@/components/productsList";
 import { getCategoryInfo } from "@/services/categories";
 import { getProductsByCategorySlug } from "@/services/products";
 import clsx from "clsx";
@@ -11,7 +12,7 @@ export default async function CategoryInfoPage({
 }) {
   const categoryInfo = await getCategoryInfo(params.categorySlug);
 
-  if (categoryInfo.data[0].attributes.child_categories?.data.length) {
+  if (categoryInfo.data[0]?.attributes.child_categories?.data.length) {
     return (
       <div className="flex flex-col xl:pl-4">
         <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
@@ -26,16 +27,14 @@ export default async function CategoryInfoPage({
     );
   }
 
-  const products = await getProductsByCategorySlug(
-    categoryInfo.data[0].attributes.slug
-  );
+  const products = await getProductsByCategorySlug(params.categorySlug);
 
   return (
     <div className="flex flex-col xl:pl-4">
       <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
         {categoryInfo.data[0].attributes.name}
       </h1>
-      <span>Products list</span>
+      <ProductsList products={products.data} />
     </div>
   );
 }

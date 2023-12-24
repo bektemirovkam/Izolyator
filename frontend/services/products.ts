@@ -4,7 +4,7 @@ import { Product } from "@/types/product";
 
 export const getProductsByCategorySlug = async (categorySlug: string) => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
-    `products?category.slug=${categorySlug}`
+    `products?populate[0]=category&filters[category][slug][$eq]=${categorySlug}&populate=preview`
   );
   return data;
 };
