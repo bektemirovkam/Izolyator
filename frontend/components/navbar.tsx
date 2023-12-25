@@ -76,7 +76,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 <Link
                   className={clsx(
                     "font-normal",
-                    linkStyles({ color: "foreground" }),
+                    linkStyles({ color: "foreground", size: "sm" }),
                     {
                       "text-brand-color":
                         item.href === "/"

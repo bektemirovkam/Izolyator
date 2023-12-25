@@ -1,5 +1,10 @@
 import { SearchForm } from "@/components/searchForm";
 import { searchProducts } from "@/services/products";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Поиск",
+};
 
 export default function SearchPage() {
   const handleSearch = async (search: string) => {

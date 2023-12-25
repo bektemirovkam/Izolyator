@@ -21,6 +21,10 @@ export const siteConfig = {
       href: "/delivery",
     },
     {
+      label: "Как заказать",
+      href: "/faq",
+    },
+    {
       label: "Контакты",
       href: "/contacts",
     },
@@ -41,6 +45,10 @@ export const siteConfig = {
     {
       label: "Оплата и доставка",
       href: "/delivery",
+    },
+    {
+      label: "Как заказать",
+      href: "/faq",
     },
     {
       label: "Контакты",

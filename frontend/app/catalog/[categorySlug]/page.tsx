@@ -5,6 +5,21 @@ import { getCategoryInfo } from "@/services/categories";
 import { getProductsByCategorySlug } from "@/services/products";
 import clsx from "clsx";
 
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { categorySlug: string };
+}): Promise<Metadata> {
+  const categoryInfo = await getCategoryInfo(params.categorySlug);
+
+  return {
+    title: categoryInfo.data[0].attributes.seo?.title,
+    description: categoryInfo.data[0].attributes.seo?.description,
+  };
+}
+
 export default async function CategoryInfoPage({
   params,
 }: {

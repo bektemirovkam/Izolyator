@@ -12,12 +12,9 @@ export interface Product {
     category: {
       data: Category;
     };
-    seo: Seo[];
-    preview: {
+    seo?: Seo[];
+    preview?: {
       data: Media;
-    };
-    gallery: {
-      data: Media[];
     };
   };
 }

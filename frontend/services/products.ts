@@ -11,7 +11,7 @@ export const getProductsByCategorySlug = async (categorySlug: string) => {
 
 export const getProductInfo = async (slug: string) => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
-    `products?filters[slug]=${slug}`
+    `products?filters[slug]=${slug}&populate=seo`
   );
   return data;
 };

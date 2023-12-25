@@ -11,7 +11,7 @@ export const getCategories = async () => {
 
 export const getCategoryInfo = async (slug: string) => {
   const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
-    `categories?filters[slug]=${slug}&populate[child_categories][populate]=preview`
+    `categories?filters[slug]=${slug}&populate[child_categories][populate]=preview&populate=seo`
   );
   return data;
 };
