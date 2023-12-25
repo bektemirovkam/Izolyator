@@ -1,4 +1,5 @@
 import { title } from "@/components/primitives";
+import { ProductInfo } from "@/components/productInfo";
 import { getProductInfo } from "@/services/products";
 import clsx from "clsx";
 
@@ -14,6 +15,7 @@ export default async function ProductInfoPage({
       <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
         {productInfo.data[0].attributes.name}
       </h1>
+      {productInfo.data[0] && <ProductInfo product={productInfo.data[0]} />}
     </div>
   );
 }

@@ -32,9 +32,12 @@ export default async function CategoryInfoPage({
   return (
     <div className="flex flex-col xl:pl-4">
       <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
-        {categoryInfo.data[0].attributes.name}
+        {categoryInfo.data[0]?.attributes.name}
       </h1>
-      <ProductsList products={products.data} />
+      <ProductsList
+        products={products.data}
+        categorySlug={params.categorySlug}
+      />
     </div>
   );
 }

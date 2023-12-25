@@ -7,7 +7,9 @@ export interface Category {
   attributes: {
     name: string;
     description: string | null;
-    preview?: Media;
+    preview?: {
+      data: Media;
+    };
     seo?: Seo;
     slug: string;
     products?: {

@@ -3,14 +3,18 @@ import { Card, CardFooter, Image, Link } from "@nextui-org/react";
 
 interface ProductsListProps {
   products: Product[];
+  categorySlug: string;
 }
 
-export const ProductsList = ({ products }: ProductsListProps) => {
+export const ProductsList = ({ products, categorySlug }: ProductsListProps) => {
   return (
     <div className="flex gap-3 flex-wrap justify-center sm:justify-between xl:justify-start">
       {products.map((p) => {
         return (
-          <Link href={`/catalog/${p.attributes.slug}`} key={p.id}>
+          <Link
+            href={`/catalog/${categorySlug}/${p.attributes.slug}`}
+            key={p.id}
+          >
             <Card
               isFooterBlurred
               radius="lg"
