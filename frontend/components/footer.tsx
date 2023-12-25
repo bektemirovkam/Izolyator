@@ -11,13 +11,14 @@ export const Footer = () => {
 
   return (
     <footer className="flex  border-t-2 py-5">
-      <ul className="basis-full flex justify-around items-center">
+      <ul className="basis-full flex justify-around items-center flex-wrap sm:flex-nowrap">
         {siteConfig.navItems.map((item) => (
-          <li key={item.href}>
+          <li key={item.href} className="mr-2 last:mr-0">
             <Link
               className={clsx(
                 "font-normal",
                 linkStyles({ color: "foreground" }),
+                "text-xs sm:text-sm md:text-base",
                 {
                   "text-brand-color":
                     item.href === "/"
