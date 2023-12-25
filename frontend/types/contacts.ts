@@ -3,8 +3,10 @@ export interface Contacts {
   attributes: {
     email: string;
     phone: string;
-    address: string;
+    mailing_address: string;
+    legal_address: string;
     operatingMode: string;
     whatsapp: string;
+    manager: string;
   };
 }

@@ -21,6 +21,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Contacts } from "@/types/contacts";
+import { formatPhoneNumber } from "@/utils/formatPhoneNumber";
 
 interface NavbarProps {
   contacts: Contacts;
@@ -99,7 +100,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 className="text-foreground text-xs"
               >
                 <PhoneIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
-                <span>{contacts.attributes.phone}</span>
+                <span>{formatPhoneNumber(contacts.attributes.phone)}</span>
               </Link>
             </NavbarItem>
             <NavbarItem>
@@ -113,7 +114,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                   fill="rgb(82, 196, 26)"
                   className="mr-2"
                 />
-                <span>{contacts.attributes.whatsapp}</span>
+                <span>{formatPhoneNumber(contacts.attributes.whatsapp)}</span>
               </Link>
             </NavbarItem>
             <NavbarItem>
@@ -168,7 +169,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 onClick={closeMenu}
               >
                 <PhoneIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
-                <span>{contacts.attributes.phone}</span>
+                <span>{formatPhoneNumber(contacts.attributes.phone)}</span>
               </Link>
             </NavbarMenuItem>
             <NavbarMenuItem>
@@ -183,7 +184,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                   fill="rgb(82, 196, 26)"
                   className="mr-2"
                 />
-                <span>{contacts.attributes.whatsapp}</span>
+                <span>{formatPhoneNumber(contacts.attributes.whatsapp)}</span>
               </Link>
             </NavbarMenuItem>
             <NavbarMenuItem>

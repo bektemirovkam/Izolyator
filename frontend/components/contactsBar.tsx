@@ -11,6 +11,7 @@ import {
 import { Link } from "@nextui-org/link";
 
 import { EmailIcon, PhoneIcon, WhatsAppIcon } from "@/components/icons";
+import { formatPhoneNumber } from "@/utils/formatPhoneNumber";
 
 interface ContactsBarProps {
   contacts: Contacts;
@@ -32,7 +33,7 @@ export const ContactsBar = ({ contacts }: ContactsBarProps) => {
             className="text-foreground text-xs"
           >
             <PhoneIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
-            <span>{contacts.attributes.phone}</span>
+            <span>{formatPhoneNumber(contacts.attributes.phone)}</span>
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -52,7 +53,7 @@ export const ContactsBar = ({ contacts }: ContactsBarProps) => {
             className="text-foreground text-xs"
           >
             <WhatsAppIcon size={20} fill="rgb(82, 196, 26)" className="mr-2" />
-            <span>{contacts.attributes.whatsapp}</span>
+            <span>{formatPhoneNumber(contacts.attributes.whatsapp)}</span>
           </Link>
         </NavbarItem>
       </NavbarContent>

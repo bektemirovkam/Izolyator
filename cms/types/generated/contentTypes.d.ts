@@ -741,9 +741,11 @@ export interface ApiContactContact extends Schema.SingleType {
   attributes: {
     email: Attribute.Email;
     phone: Attribute.String;
-    address: Attribute.String;
+    legal_address: Attribute.String;
     operatingMode: Attribute.Text;
     whatsapp: Attribute.String;
+    mailing_address: Attribute.String;
+    manager: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

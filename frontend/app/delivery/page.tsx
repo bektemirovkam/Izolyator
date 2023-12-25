@@ -1,4 +1,8 @@
-export default function DeliveryPage() {
+import { getContacts } from "@/services/contacts";
+
+export default async function DeliveryPage() {
+  const data = await getContacts();
+
   return (
     <div className="flex-auto">
       <h1 className="text-3xl font-bold mb-4">Оплата и доставка</h1>
@@ -17,10 +21,10 @@ export default function DeliveryPage() {
           <h2 className="text-2xl font-bold mb-2">Реквизиты компании:</h2>
           <p className="text-gray-700">
             <span className="font-bold">Компания:</span> ИП
-            &quot;ПРОМПОСТАВКИ&quot;
+            &quot;ПромПоставки&quot;
             <br />
-            <span className="font-bold">Адрес:</span> Казахстан, Петропавловск,
-            ул. ПОЗОЛОТИНА, 56, офис 27
+            <span className="font-bold">Адрес:</span>
+            {data.data.attributes.legal_address}
             <br />
             <span className="font-bold">БИН (ИИН):</span> 801208301554
             <br />
@@ -37,11 +41,12 @@ export default function DeliveryPage() {
         <div>
           <h2 className="text-2xl font-bold mb-2">Способы доставки:</h2>
           <p className="text-gray-700">
-            <span className="font-bold">Бесплатная доставка:</span> в любой
-            город Казахстана, транспортными компаниями Jet Logistic, AVIS, CDEK,
-            до терминала в вашем городе, либо до офиса/склада, по согласованию
-            сторон. Отгрузка производится только после оплаты товара, если не
-            оговорены другие условия.
+            Бесплатная доставка{" "}
+            <span className="font-bold">в любой город Казахстана</span>,
+            транспортными компаниями Jet Logistic, AVIS, CDEK, до терминала в
+            вашем городе, либо до офиса/склада, по согласованию сторон. Отгрузка
+            производится только после оплаты товара, если не оговорены другие
+            условия.
           </p>
         </div>
       </div>

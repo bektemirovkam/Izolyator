@@ -18,13 +18,19 @@
     "phone": {
       "type": "string"
     },
-    "address": {
+    "legal_address": {
       "type": "string"
     },
     "operatingMode": {
       "type": "text"
     },
     "whatsapp": {
+      "type": "string"
+    },
+    "mailing_address": {
+      "type": "string"
+    },
+    "manager": {
       "type": "string"
     }
   }

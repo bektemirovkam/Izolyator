@@ -4,7 +4,7 @@ export default function Home() {
       <h1 className="w-0 h-0 opacity-0">ПромПоставки</h1>
       <div className="max-w-2xl mx-auto">
         <h2 className="text-3xl font-bold mb-4">О нас</h2>
-        <p className="text-gray-700">
+        <p className="text-gray-700 leading-7">
           Компания &quot;ПромПоставки&quot; – ваш надежный партнер в области
           поставок изоляторов, ОПН, РВО и других необходимых сопутствующих
           товаров. Мы являемся профессионалами в этой области, предлагая
@@ -13,7 +13,7 @@ export default function Home() {
 
         <div className="mt-8">
           <h3 className="text-xl font-bold mb-2">Наши преимущества:</h3>
-          <ul className="list-disc pl-6">
+          <ul className="list-disc pl-6 leading-7">
             <li className="text-gray-700">
               Качественные товары: Мы работаем только с проверенными
               производителями, чтобы обеспечить наших клиентов продукцией
@@ -47,7 +47,7 @@ export default function Home() {
           </ul>
         </div>
 
-        <p className="mt-8 text-gray-700">
+        <p className="mt-8 text-gray-700 leading-7">
           Выбирая компанию &quot;ПромПоставки&quot;, вы выбираете надежного
           поставщика с безупречной репутацией. Мы готовы к сотрудничеству и
           уверены, что сможем удовлетворить все ваши потребности.
