@@ -1,17 +1,38 @@
 "use client";
 
 import { ProductsList } from "@/components/productsList";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { Product } from "@/types/product";
 import { Button, Input } from "@nextui-org/react";
 import { ChangeEvent, useState } from "react";
 
-export const SearchForm = () => {
+interface SearchForm {
+  handleSearch: (search: string) => Promise<Product[]>;
+}
+
+export const SearchForm = ({ handleSearch }: SearchForm) => {
   const [search, setSearch] = useState("");
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
+
+  const smallScreen = useMediaQuery("(max-width: 650px)");
 
   const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const target = e.target;
-
     setSearch(target.value);
+  };
+
+  const onSubmit = async () => {
+    setIsEmpty(false);
+    setLoading(true);
+    const products = await handleSearch(search);
+    if (products.length === 0) {
+      setIsEmpty(true);
+    } else {
+      setProducts(products);
+    }
+    setLoading(false);
   };
 
   return (
@@ -21,13 +42,25 @@ export const SearchForm = () => {
           type="text"
           variant="flat"
           label="Поиск"
-          className="mr-8"
+          className="mr-4 md:mr-8"
           value={search}
           onChange={onSearchChange}
         />
-        <Button color="default" className="bg-brand-color text-white" size="lg">
+        <Button
+          color="default"
+          className="bg-brand-color text-white"
+          size={smallScreen ? "md" : "lg"}
+          onClick={onSubmit}
+        >
           Найти
         </Button>
+      </div>
+      <div className="mt-5">
+        {isEmpty ? (
+          <p>По вашему запросу ничего не найдено.</p>
+        ) : (
+          <ProductsList products={products} loading={loading} />
+        )}
       </div>
     </div>
   );

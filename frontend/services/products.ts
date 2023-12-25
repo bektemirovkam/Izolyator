@@ -15,3 +15,10 @@ export const getProductInfo = async (slug: string) => {
   );
   return data;
 };
+
+export const searchProducts = async (search: string) => {
+  const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
+    `products?filters[$or][0][vendorCode][$contains]=${search}&filters[$or][1][name][$contains]=${search}&populate=category&populate=preview`
+  );
+  return data;
+};
