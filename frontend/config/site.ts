@@ -17,12 +17,12 @@ export const siteConfig = {
       href: "/search",
     },
     {
-      label: "Оплата и доставка",
-      href: "/delivery",
-    },
-    {
       label: "Как заказать",
       href: "/faq",
+    },
+    {
+      label: "Оплата и доставка",
+      href: "/delivery",
     },
     {
       label: "Контакты",
@@ -43,12 +43,12 @@ export const siteConfig = {
       href: "/search",
     },
     {
-      label: "Оплата и доставка",
-      href: "/delivery",
-    },
-    {
       label: "Как заказать",
       href: "/faq",
+    },
+    {
+      label: "Оплата и доставка",
+      href: "/delivery",
     },
     {
       label: "Контакты",

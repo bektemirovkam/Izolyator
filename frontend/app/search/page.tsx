@@ -10,8 +10,6 @@ export default function SearchPage() {
   const handleSearch = async (search: string) => {
     "use server";
 
-    console.log("handleSearch ---> ", search);
-
     const products = await searchProducts(search);
     return products.data;
   };

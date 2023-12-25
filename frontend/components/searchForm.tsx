@@ -4,6 +4,7 @@ import { ProductsList } from "@/components/productsList";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Product } from "@/types/product";
 import { Button, Input } from "@nextui-org/react";
+import clsx from "clsx";
 import { ChangeEvent, useState } from "react";
 
 interface SearchForm {
@@ -48,9 +49,12 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
         />
         <Button
           color="default"
-          className="bg-brand-color text-white"
+          className={clsx({
+            "bg-brand-color text-white": search.length > 3,
+          })}
           size={smallScreen ? "md" : "lg"}
           onClick={onSubmit}
+          disabled={search.length < 3}
         >
           Найти
         </Button>
