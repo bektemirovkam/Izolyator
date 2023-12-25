@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mardown p {
+  margin-bottom: 15px;
+}

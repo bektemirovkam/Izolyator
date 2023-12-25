@@ -11,11 +11,10 @@ interface ProductInfoProps {
 export const ProductInfo = ({ product }: ProductInfoProps) => {
   return (
     <div>
-      {product.attributes.gallery?.data && (
-        <Gallery gallery={product.attributes.gallery.data} />
-      )}
-      <h2>VIN-code: {product.attributes.vendorCode}</h2>
-      <Markdown>{product.attributes.description}</Markdown>
+      <h2 className="font-bold mb-4 text-lg">
+        VIN-code: {product.attributes.vendorCode}
+      </h2>
+      <Markdown className="mardown">{product.attributes.description}</Markdown>
     </div>
   );
 };

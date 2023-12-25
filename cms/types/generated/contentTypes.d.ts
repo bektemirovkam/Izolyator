@@ -783,7 +783,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     seo: Attribute.Component<'seo.title-description', true>;
     preview: Attribute.Media;
-    gallery: Attribute.Media;
     vendorCode: Attribute.String & Attribute.Required & Attribute.Unique;
     description: Attribute.RichText;
     createdAt: Attribute.DateTime;

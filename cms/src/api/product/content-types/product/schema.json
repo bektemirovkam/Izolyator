@@ -41,14 +41,6 @@
         "images"
       ]
     },
-    "gallery": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "vendorCode": {
       "type": "string",
       "required": true,
