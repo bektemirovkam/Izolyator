@@ -8,7 +8,6 @@ import { link as linkStyles } from "@nextui-org/theme";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { useState } from "react";
 
 interface CatalogSidebarProps {
   categories: Category[];
@@ -41,7 +40,7 @@ const CategorySideBarItem = ({
         className={clsx("text-xs", linkStyles({ color: "foreground" }), {
           "text-brand-color":
             category?.attributes?.slug &&
-            pathname.split("/").splice(-1, 1)[0] === category.attributes.slug,
+            pathname.split("/")[2] === category.attributes.slug,
           "font-semibold": isTop,
         })}
       >

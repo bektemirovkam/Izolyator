@@ -41,7 +41,6 @@ export default async function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen px-4">
             <Navbar contacts={data.data} />
-            {/* <ContactsBar contacts={data.data} /> */}
             {children}
             <Footer />
           </div>

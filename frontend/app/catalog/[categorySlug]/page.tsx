@@ -34,10 +34,7 @@ export default async function CategoryInfoPage({
       <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
         {categoryInfo.data[0]?.attributes.name}
       </h1>
-      <ProductsList
-        products={products.data}
-        categorySlug={params.categorySlug}
-      />
+      <ProductsList products={products.data} />
     </div>
   );
 }
