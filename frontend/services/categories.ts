@@ -1,13 +1,14 @@
 import axios from "@/axios/axios";
+import { cache } from "react";
 import { MetaStrapiInfo } from "@/types";
 import { Category } from "@/types/category";
 
-export const getSiteMapCategories = async () => {
+export const getSiteMapCategories = cache(async () => {
   const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
     "categories"
   );
   return data;
-};
+});
 
 export const getCategories = async () => {
   const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(

@@ -1,13 +1,14 @@
 import axios from "@/axios/axios";
+import { cache } from "react";
 import { MetaStrapiInfo } from "@/types";
 import { Product } from "@/types/product";
 
-export const getSiteMapProducts = async () => {
+export const getSiteMapProducts = cache(async () => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
     `products?fields[0]=slug&populate=category`
   );
   return data;
-};
+});
 
 export const getProductsByCategorySlug = async (categorySlug: string) => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
