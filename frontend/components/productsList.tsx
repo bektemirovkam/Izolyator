@@ -29,8 +29,8 @@ export const ProductsList = ({ products, loading }: ProductsListProps) => {
                   className="object-cover"
                   height={200}
                   src={
-                    p.attributes.preview?.data.attributes.formats.small?.url ||
-                    p.attributes.preview?.data.attributes.url
+                    p.attributes.preview?.data?.attributes?.formats?.small
+                      ?.url || p.attributes.preview?.data?.attributes?.url
                   }
                   width={200}
                 />

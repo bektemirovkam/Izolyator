@@ -21,8 +21,8 @@ export const CategoriesList = ({ categories }: CategoriesListProps) => {
                 className="object-cover"
                 height={200}
                 src={
-                  c.attributes.preview?.data.attributes.formats.small?.url ||
-                  c.attributes.preview?.data.attributes.url
+                  c.attributes.preview?.data?.attributes?.formats.small?.url ||
+                  c.attributes.preview?.data?.attributes?.url
                 }
                 width={200}
               />
