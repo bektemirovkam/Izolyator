@@ -2,6 +2,13 @@ import axios from "@/axios/axios";
 import { MetaStrapiInfo } from "@/types";
 import { Category } from "@/types/category";
 
+export const getSiteMapCategories = async () => {
+  const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
+    "categories"
+  );
+  return data;
+};
+
 export const getCategories = async () => {
   const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
     "categories?populate=parent&populate=child_categories"
