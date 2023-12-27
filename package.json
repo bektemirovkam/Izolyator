@@ -1,0 +1,19 @@
+{
+  "name": "izolyator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-app": "npx pm2 start pm2.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bektemirovkam/Izolyator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bektemirovkam/Izolyator/issues"
+  },
+  "homepage": "https://github.com/bektemirovkam/Izolyator#readme"
+}
