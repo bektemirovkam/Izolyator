@@ -36,12 +36,12 @@ export const Navbar = ({ contacts }: NavbarProps) => {
 
   return (
     <div>
-      <p className="text-center text-sm bg-amber-500 text-white p-2 rounded-b-lg">
+      <p className="text-center text-sm bg-amber-500 text-black p-2 rounded-b-lg">
         В данный момент сайт находится в стадии разработки, отладки и наполнения
         контентом. Для уточнения актуальной информации по товарам, обращаться по
         телефону{" "}
         <Link
-          className="text-sm text-white underline"
+          className="text-sm text-black underline"
           href={`tel:${contacts.attributes.phone}`}
         >
           {formatPhoneNumber(contacts.attributes.phone)}
