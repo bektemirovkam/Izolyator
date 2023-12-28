@@ -53,3 +53,5 @@ export default async function CategoryInfoPage({
     </div>
   );
 }
+
+export const revalidate = 300;

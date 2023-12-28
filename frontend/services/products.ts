@@ -10,19 +10,19 @@ export const getSiteMapProducts = cache(async () => {
   return data;
 });
 
-export const getProductsByCategorySlug = async (categorySlug: string) => {
+export const getProductsByCategorySlug = cache(async (categorySlug: string) => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
     `products?populate[0]=category&filters[category][slug][$eq]=${categorySlug}&populate=preview`
   );
   return data;
-};
+});
 
-export const getProductInfo = async (slug: string) => {
+export const getProductInfo = cache(async (slug: string) => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
     `products?filters[slug]=${slug}&populate=seo`
   );
   return data;
-};
+});
 
 export const searchProducts = async (search: string) => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(

@@ -15,3 +15,5 @@ export default async function CatalogPage() {
     </div>
   );
 }
+
+export const revalidate = 300;
