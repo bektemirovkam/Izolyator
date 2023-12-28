@@ -36,7 +36,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
 
   return (
     <div>
-      <p className="text-center text-sm bg-amber-500 text-black p-2 rounded-b-lg">
+      <p className="hidden xl:block text-center text-sm bg-amber-500 text-black p-2 rounded-b-lg">
         В данный момент сайт находится в стадии разработки, отладки и наполнения
         контентом. Для уточнения актуальной информации по товарам, обращаться по
         телефону{" "}
@@ -237,6 +237,19 @@ export const Navbar = ({ contacts }: NavbarProps) => {
           </div>
         </NavbarMenu>
       </NextUINavbar>
+      <p className="block xl:hidden text-center text-sm bg-amber-500 text-black p-2 rounded-b-lg">
+        В данный момент сайт находится в стадии разработки, отладки и наполнения
+        контентом. Для уточнения актуальной информации по товарам, обращаться по
+        телефону{" "}
+        <Link
+          className="text-sm text-black underline"
+          href={`tel:${contacts.attributes.phone}`}
+        >
+          {formatPhoneNumber(contacts.attributes.phone)}
+        </Link>
+        , или смотреть раздел контакты, где указаны номера менеджеров по
+        продажам. Спасибо за понимание!
+      </p>
     </div>
   );
 };
