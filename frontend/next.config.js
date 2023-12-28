@@ -7,6 +7,11 @@ const nextConfig = {
                 destination: `${process.env.API_URL}/uploads/:path*`
             }
         ]
+    },
+    experimental: {
+        serverActions: {
+            allowedOrigins: ["prompostavki.kz"]
+        }
     }
 }
 
