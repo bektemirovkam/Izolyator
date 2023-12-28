@@ -27,6 +27,14 @@ interface NavbarProps {
   contacts: Contacts;
 }
 
+export const nonCatalogRoutes = [
+  "/search",
+  "/faq",
+  "/delivery",
+  "/about",
+  "/contacts",
+];
+
 export const Navbar = ({ contacts }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -89,7 +97,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                   key={item.href}
                   isActive={
                     item.href === "/"
-                      ? pathname === "/"
+                      ? !nonCatalogRoutes.includes(pathname)
                       : pathname.includes(item.href)
                   }
                 >
@@ -100,7 +108,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                       {
                         "text-brand-color":
                           item.href === "/"
-                            ? pathname === "/"
+                            ? !nonCatalogRoutes.includes(pathname)
                             : pathname.includes(item.href),
                       }
                     )}
@@ -178,7 +186,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                     {
                       "text-brand-color":
                         item.href === "/"
-                          ? pathname === "/"
+                          ? !nonCatalogRoutes.includes(pathname)
                           : pathname.includes(item.href),
                     }
                   )}

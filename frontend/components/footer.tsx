@@ -1,5 +1,6 @@
 "use client";
 
+import { nonCatalogRoutes } from "@/components/navbar";
 import { siteConfig } from "@/config/site";
 import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
@@ -22,7 +23,7 @@ export const Footer = () => {
                 {
                   "text-brand-color":
                     item.href === "/"
-                      ? pathname === "/"
+                      ? !nonCatalogRoutes.includes(pathname)
                       : pathname.includes(item.href),
                 }
               )}
