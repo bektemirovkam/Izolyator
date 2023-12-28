@@ -6,12 +6,8 @@ export const siteConfig = {
     "Ваш надежный партнер в области поставок изоляторов, ОПН, РВО и других необходимых сопутствующих товаров",
   navItems: [
     {
-      label: "Главная",
-      href: "/",
-    },
-    {
       label: "Каталог",
-      href: "/catalog",
+      href: "/",
     },
     {
       label: "Поиск",
@@ -24,6 +20,10 @@ export const siteConfig = {
     {
       label: "Оплата и доставка",
       href: "/delivery",
+    },
+    {
+      label: "О нас",
+      href: "/about",
     },
     {
       label: "Контакты",
@@ -32,12 +32,8 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Главная",
-      href: "/",
-    },
-    {
       label: "Каталог",
-      href: "/catalog",
+      href: "/",
     },
     {
       label: "Поиск",
@@ -50,6 +46,10 @@ export const siteConfig = {
     {
       label: "Оплата и доставка",
       href: "/delivery",
+    },
+    {
+      label: "О нас",
+      href: "/about",
     },
     {
       label: "Контакты",

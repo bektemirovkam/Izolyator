@@ -10,7 +10,7 @@ export const CategoriesList = ({ categories }: CategoriesListProps) => {
     <div className="flex gap-3 flex-wrap justify-center sm:justify-between xl:justify-start">
       {categories.map((c) => {
         return (
-          <Link href={`/catalog/${c.attributes.slug}`} key={c.id}>
+          <Link href={`/${c.attributes.slug}`} key={c.id}>
             <Card
               isFooterBlurred
               radius="lg"

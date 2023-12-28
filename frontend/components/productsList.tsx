@@ -16,7 +16,7 @@ export const ProductsList = ({ products, loading }: ProductsListProps) => {
         products.map((p) => {
           return (
             <Link
-              href={`/catalog/${p.attributes.category.data.attributes.slug}/${p.attributes.slug}`}
+              href={`/${p.attributes.category.data.attributes.slug}/${p.attributes.slug}`}
               key={p.id}
             >
               <Card

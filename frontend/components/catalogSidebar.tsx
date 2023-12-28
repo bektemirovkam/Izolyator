@@ -35,7 +35,7 @@ const CategorySideBarItem = ({
     >
       <Link
         color="foreground"
-        href={`/catalog/${category?.attributes?.slug}`}
+        href={`/${category?.attributes?.slug}`}
         size="lg"
         className={clsx("text-xs", linkStyles({ color: "foreground" }), {
           "text-brand-color":
