@@ -10,7 +10,7 @@ const nextConfig = {
     },
     experimental: {
         serverActions: {
-            allowedOrigins: ["prompostavki.kz"]
+            allowedOrigins: ["prompostavki.kz", "localhost"]
         }
     }
 }
