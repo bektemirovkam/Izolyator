@@ -11,9 +11,6 @@ function generateSiteMap(products: Product[], categories: Category[]) {
      <url>
        <loc>${DOMEN}</loc>
      </url>
-     <url>
-       <loc>${DOMEN}/catalog</loc>
-     </url>
       <url>
        <loc>${DOMEN}/faq</loc>
      </url>

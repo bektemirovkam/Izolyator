@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="py-8 flex-auto">
+    <div className="flex-auto">
       <h1 className="w-0 h-0 opacity-0">ПромПоставки</h1>
       <div className="max-w-2xl mx-auto">
         <h2 className="text-3xl font-bold mb-4">О нас</h2>
