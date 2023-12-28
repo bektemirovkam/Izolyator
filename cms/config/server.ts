@@ -8,5 +8,4 @@ export default ({ env }) => ({
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
   proxy: true,
-  url: "http://127.0.0.1:1337/cms",
 });
