@@ -6,7 +6,8 @@
   "scripts": {
     "start-app": "npx pm2 start pm2.config.js",
     "start-cms": "cd ./cms/ npx pm2 start npm --name cms -- start",
-    "start-frontend": "cd ./frontend/ npx pm2 start npm --name frontend -- start"
+    "start-frontend": "cd ./frontend/ npx pm2 start npm --name frontend -- start",
+    "pm2-list": "npx pm2 list"
   },
   "repository": {
     "type": "git",
