@@ -5,3 +5,6 @@
 .mardown p {
   margin-bottom: 15px;
 }
+a {
+  user-select: text !important;
+}
