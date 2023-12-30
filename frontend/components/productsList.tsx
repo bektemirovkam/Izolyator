@@ -9,7 +9,7 @@ interface ProductsListProps {
 
 export const ProductsList = ({ products, loading }: ProductsListProps) => {
   return (
-    <div className="flex gap-3 flex-wrap justify-center sm:justify-between xl:justify-start">
+    <div className="grid grid-cols-2 gap-3 lg:grid-cols-5 md:grid-cols-3">
       {loading ? (
         <Loader />
       ) : (
@@ -18,24 +18,27 @@ export const ProductsList = ({ products, loading }: ProductsListProps) => {
             <Link
               href={`/${p.attributes.category.data.attributes.slug}/${p.attributes.slug}`}
               key={p.id}
+              className="block h-full"
             >
               <Card
                 isFooterBlurred
                 radius="lg"
-                className="border-none rounded-none"
+                className="border-none rounded-none flex-col h-full justify-between p-2"
               >
                 <Image
                   alt={p.attributes.name}
-                  className="object-cover"
+                  className="object-cover flex-auto"
                   height={200}
                   src={
                     p.attributes.preview?.data?.attributes?.formats?.small
                       ?.url || p.attributes.preview?.data?.attributes?.url
                   }
-                  width={200}
+                  width={"100%"}
                 />
-                <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                  <p className="text-center">{p.attributes.name}</p>
+                <CardFooter className="justify-center">
+                  <p className="text-center text-green-700 font-bold">
+                    {p.attributes.name}
+                  </p>
                 </CardFooter>
               </Card>
             </Link>

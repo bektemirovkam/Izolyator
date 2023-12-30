@@ -7,11 +7,14 @@ interface CategoriesListProps {
 
 export const CategoriesList = ({ categories }: CategoriesListProps) => {
   return (
-    // <div className="flex gap-3 flex-wrap justify-center sm:justify-between xl:justify-start">
-    <div className="grid grid-cols-5 gap-3">
+    <div className="grid grid-cols-2 gap-3 lg:grid-cols-5 md:grid-cols-3">
       {categories.map((c) => {
         return (
-          <Link href={`/${c.attributes.slug}`} key={c.id} className="h-full">
+          <Link
+            href={`/${c.attributes.slug}`}
+            key={c.id}
+            className="block h-full"
+          >
             <Card
               isFooterBlurred
               radius="lg"
@@ -25,7 +28,7 @@ export const CategoriesList = ({ categories }: CategoriesListProps) => {
                   c.attributes.preview?.data?.attributes?.formats.small?.url ||
                   c.attributes.preview?.data?.attributes?.url
                 }
-                width={200}
+                width={"100%"}
               />
               <CardFooter className="justify-center">
                 <p className="text-center text-green-700 font-bold">
