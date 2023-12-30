@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 export default function FaqLayout({ children }: { children: React.ReactNode }) {
   return (
     <section className="flex flex-col items-center gap-4 py-8 md:py-10 flex-auto">
-      <div className="flex max-w-lg justify-center">{children}</div>
+      <div className="flex justify-center">{children}</div>
     </section>
   );
 }

@@ -10,7 +10,7 @@ export default async function ContactsPage() {
       <h1 className="text-3xl font-bold mb-4">Контакты</h1>
 
       <div className="max-w-2xl mx-auto">
-        <div className="mb-8 leading-7">
+        <div className="mb-8 leading-8">
           <p className="text-gray-700">
             <span className="font-bold">Юридический адрес:</span>{" "}
             {data.data.attributes.legal_address}

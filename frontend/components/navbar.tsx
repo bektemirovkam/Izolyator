@@ -167,7 +167,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
         </NavbarContent>
 
         <ul className="xl:hidden basis-1 pl-4 justify-end flex-grow-0">
-          <NavbarMenuToggle />
+          <NavbarMenuToggle className="p-4 border" />
         </ul>
 
         <NavbarMenu>
