@@ -40,7 +40,7 @@ const CategorySideBarItem = ({
         className={clsx("text-xs", linkStyles({ color: "foreground" }), {
           "text-brand-color":
             category?.attributes?.slug &&
-            pathname.split("/")[2] === category.attributes.slug,
+            pathname.split("/")[1] === category.attributes.slug,
           "font-semibold": isTop,
         })}
       >
