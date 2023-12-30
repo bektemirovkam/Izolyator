@@ -13,8 +13,8 @@ export async function generateMetadata({
   const productInfo = await getProductInfo(params.productSlug);
 
   return {
-    title: productInfo.data[0]?.attributes.seo?.[0].title,
-    description: productInfo.data[0]?.attributes.seo?.[0].description,
+    title: productInfo.data[0]?.attributes.seo?.[0]?.title,
+    description: productInfo.data[0]?.attributes.seo?.[0]?.description,
   };
 }
 
