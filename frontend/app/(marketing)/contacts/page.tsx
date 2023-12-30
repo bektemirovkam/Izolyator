@@ -1,6 +1,11 @@
 import { getContacts } from "@/services/contacts";
 import { formatPhoneNumber } from "@/utils/formatPhoneNumber";
 import { Link } from "@nextui-org/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Контакты",
+};
 
 export default async function ContactsPage() {
   const data = await getContacts();

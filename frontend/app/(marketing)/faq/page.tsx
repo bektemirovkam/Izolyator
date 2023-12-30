@@ -1,6 +1,11 @@
 import { getContacts } from "@/services/contacts";
 import { formatPhoneNumber } from "@/utils/formatPhoneNumber";
 import { Link } from "@nextui-org/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Как заказать",
+};
 
 export default async function FaqPage() {
   const data = await getContacts();

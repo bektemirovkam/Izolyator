@@ -1,4 +1,9 @@
 import { getContacts } from "@/services/contacts";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Оплата и доставка",
+};
 
 export default async function DeliveryPage() {
   const data = await getContacts();

@@ -15,8 +15,8 @@ export async function generateMetadata({
   const categoryInfo = await getCategoryInfo(params.categorySlug);
 
   return {
-    title: categoryInfo.data[0].attributes.seo?.title,
-    description: categoryInfo.data[0].attributes.seo?.description,
+    title: categoryInfo.data[0]?.attributes.seo?.title,
+    description: categoryInfo.data[0]?.attributes.seo?.description,
   };
 }
 

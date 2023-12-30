@@ -7,18 +7,19 @@ interface CategoriesListProps {
 
 export const CategoriesList = ({ categories }: CategoriesListProps) => {
   return (
-    <div className="flex gap-3 flex-wrap justify-center sm:justify-between xl:justify-start">
+    // <div className="flex gap-3 flex-wrap justify-center sm:justify-between xl:justify-start">
+    <div className="grid grid-cols-5 gap-3">
       {categories.map((c) => {
         return (
-          <Link href={`/${c.attributes.slug}`} key={c.id}>
+          <Link href={`/${c.attributes.slug}`} key={c.id} className="h-full">
             <Card
               isFooterBlurred
               radius="lg"
-              className="border-none rounded-none"
+              className="border-none rounded-none flex-col h-full justify-between p-2"
             >
               <Image
                 alt={c.attributes.name}
-                className="object-cover"
+                className="object-cover flex-auto"
                 height={200}
                 src={
                   c.attributes.preview?.data?.attributes?.formats.small?.url ||
@@ -26,8 +27,10 @@ export const CategoriesList = ({ categories }: CategoriesListProps) => {
                 }
                 width={200}
               />
-              <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                <p className="text-center">{c.attributes.name}</p>
+              <CardFooter className="justify-center">
+                <p className="text-center text-green-700 font-bold">
+                  {c.attributes.name}
+                </p>
               </CardFooter>
             </Card>
           </Link>

@@ -11,7 +11,7 @@ interface ProductInfoProps {
 export const ProductInfo = ({ product }: ProductInfoProps) => {
   return (
     <div>
-      <h2 className="font-bold mb-4 text-lg">
+      <h2 className="font-bold mb-4 text-lg hidden">
         VIN-code: {product.attributes.vendorCode}
       </h2>
       <Markdown className="mardown">{product.attributes.description}</Markdown>
