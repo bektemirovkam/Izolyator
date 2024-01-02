@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /cms/
 
-Sitemap: https://prompostavki.kz//sitemap-index.xml
+Sitemap: https://prompostavki.kz//sitemap.xml
