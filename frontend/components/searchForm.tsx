@@ -5,7 +5,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Product } from "@/types/product";
 import { Button, Input } from "@nextui-org/react";
 import clsx from "clsx";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface SearchForm {
   handleSearch: (search: string) => Promise<Product[]>;
@@ -36,9 +36,14 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
     setLoading(false);
   };
 
+  const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit();
+  };
+
   return (
     <div>
-      <div className="flex items-center">
+      <form className="flex items-center" onSubmit={onFormSubmit}>
         <Input
           type="text"
           variant="flat"
@@ -58,7 +63,7 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
         >
           Найти
         </Button>
-      </div>
+      </form>
       <div className="mt-5">
         {isEmpty ? (
           <p>По вашему запросу ничего не найдено.</p>
