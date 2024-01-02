@@ -103,7 +103,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 >
                   <Link
                     className={clsx(
-                      "font-normal",
+                      "font-bold",
                       linkStyles({ color: "foreground", size: "sm" }),
                       {
                         "text-brand-color":
@@ -124,7 +124,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 <Link
                   aria-label="Телефон"
                   href={`tel:${contacts.attributes.phone}`}
-                  className="text-foreground text-xs"
+                  className="text-foreground text-xs font-bold"
                 >
                   <PhoneIcon
                     size={20}
@@ -138,7 +138,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 <Link
                   aria-label="Whatsapp"
                   href={`https://wa.me/${contacts.attributes.whatsapp}`}
-                  className="text-foreground text-xs"
+                  className="text-foreground text-xs font-bold"
                 >
                   <WhatsAppIcon
                     size={20}
@@ -152,7 +152,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 <Link
                   aria-label="Email"
                   href={`mailto:${contacts.attributes.email}`}
-                  className="text-foreground text-xs"
+                  className="text-foreground text-xs font-bold"
                 >
                   <EmailIcon
                     size={20}
@@ -180,7 +180,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                   size="lg"
                   onClick={closeMenu}
                   className={clsx(
-                    "font-normal",
+                    "font-bold",
                     "w-full",
                     linkStyles({ color: "foreground" }),
                     {
@@ -200,7 +200,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 <Link
                   aria-label="Телефон"
                   href={`tel:${contacts.attributes.phone}`}
-                  className="text-foreground text-xs"
+                  className="text-foreground text-xs font-bold"
                   onClick={closeMenu}
                 >
                   <PhoneIcon
@@ -215,7 +215,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 <Link
                   aria-label="Whatsapp"
                   href={`https://wa.me/${contacts.attributes.whatsapp}`}
-                  className="text-foreground text-xs"
+                  className="text-foreground text-xs font-bold"
                   onClick={closeMenu}
                 >
                   <WhatsAppIcon
@@ -230,7 +230,7 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                 <Link
                   aria-label="Email"
                   href={`mailto:${contacts.attributes.email}`}
-                  className="text-foreground text-xs"
+                  className="text-foreground text-xs font-bold"
                   onClick={closeMenu}
                 >
                   <EmailIcon
