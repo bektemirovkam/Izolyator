@@ -24,7 +24,9 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
     setSearch(target.value);
   };
 
-  const onSubmit = async () => {
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsEmpty(false);
     setLoading(true);
     const products = await handleSearch(search);
@@ -36,14 +38,9 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
     setLoading(false);
   };
 
-  const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit();
-  };
-
   return (
     <div>
-      <form className="flex items-center" onSubmit={onFormSubmit}>
+      <form className="flex items-center" onSubmit={onSubmit}>
         <Input
           type="text"
           variant="flat"
@@ -58,8 +55,8 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
             "bg-brand-color text-white": search.length > 3,
           })}
           size={smallScreen ? "md" : "lg"}
-          onClick={onSubmit}
           disabled={search.length < 3}
+          type="submit"
         >
           Найти
         </Button>

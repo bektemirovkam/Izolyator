@@ -1,6 +1,9 @@
+import { ArrowBackIcon } from "@/components/icons";
 import { title } from "@/components/primitives";
 import { ProductInfo } from "@/components/productInfo";
 import { getProductInfo } from "@/services/products";
+import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Metadata } from "next";
@@ -27,9 +30,14 @@ export default async function ProductInfoPage({
 
   return (
     <div className="flex flex-col pl-4">
-      <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
+      <div className="flex mb-7 items-center">
+      <Link className="mr-4" href={`/${productInfo.data[0]?.attributes?.category?.data?.attributes.slug}`}>
+        <ArrowBackIcon />
+      </Link>  
+      <h1 className={clsx(title({ size: "sm" }))}>
         {productInfo.data[0]?.attributes.name}
       </h1>
+      </div>
       {productInfo.data[0] && <ProductInfo product={productInfo.data[0]} />}
     </div>
   );

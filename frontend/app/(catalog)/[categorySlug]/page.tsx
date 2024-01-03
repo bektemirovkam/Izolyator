@@ -1,8 +1,11 @@
 import { CategoriesList } from "@/components/categoriesList";
+import { ArrowBackIcon } from "@/components/icons";
 import { title } from "@/components/primitives";
 import { ProductsList } from "@/components/productsList";
 import { getCategoryInfo } from "@/services/categories";
 import { getProductsByCategorySlug } from "@/services/products";
+import { Button } from "@nextui-org/button";
+import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Metadata } from "next";
@@ -46,9 +49,14 @@ export default async function CategoryInfoPage({
 
   return (
     <div className="flex flex-col xl:pl-4">
-      <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
-        {categoryInfo.data[0]?.attributes.name}
-      </h1>
+      <div className="flex mb-7 items-center">
+        <Link className="mr-4" href="/">
+          <ArrowBackIcon />
+        </Link>  
+        <h1 className={clsx(title({ size: "sm" }))}>
+          {categoryInfo.data[0]?.attributes.name}
+        </h1>
+      </div>
       <ProductsList products={products.data} />
     </div>
   );
