@@ -19,7 +19,7 @@ export const getCategories = cache(async () => {
 
 export const getCategoryInfo = cache(async (slug: string) => {
   const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
-    `categories?filters[slug]=${slug}&populate[child_categories][populate]=preview&populate=seo`
+    `categories?filters[slug]=${slug}&populate[child_categories][populate]=preview&populate=seo&populate[parent]=slug`
   );
   return data;
 });

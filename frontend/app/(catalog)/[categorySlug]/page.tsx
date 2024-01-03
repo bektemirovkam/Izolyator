@@ -4,7 +4,6 @@ import { title } from "@/components/primitives";
 import { ProductsList } from "@/components/productsList";
 import { getCategoryInfo } from "@/services/categories";
 import { getProductsByCategorySlug } from "@/services/products";
-import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
@@ -30,12 +29,23 @@ export default async function CategoryInfoPage({
 }) {
   const categoryInfo = await getCategoryInfo(params.categorySlug);
 
+  const parentCategorySlug = categoryInfo.data[0]?.attributes.parent?.data?.attributes.slug
+
+
   if (categoryInfo.data[0]?.attributes.child_categories?.data.length) {
+
     return (
       <div className="flex flex-col xl:pl-4">
-        <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
+
+        <div className="flex mb-7 items-center">
+          <Link className="mr-4" href={`${parentCategorySlug ? `/${parentCategorySlug}` : "/"}`}>
+            <ArrowBackIcon />
+          </Link>  
+          <h1 className={clsx(title({ size: "sm" }))}>
           {categoryInfo.data[0].attributes.name}
-        </h1>
+          </h1>
+        </div>
+
         {categoryInfo.data[0].attributes.child_categories?.data && (
           <CategoriesList
             categories={categoryInfo.data[0].attributes.child_categories?.data}
@@ -50,7 +60,7 @@ export default async function CategoryInfoPage({
   return (
     <div className="flex flex-col xl:pl-4">
       <div className="flex mb-7 items-center">
-        <Link className="mr-4" href="/">
+        <Link className="mr-4" href={`${parentCategorySlug ? `/${parentCategorySlug}` : "/"}`}>
           <ArrowBackIcon />
         </Link>  
         <h1 className={clsx(title({ size: "sm" }))}>
