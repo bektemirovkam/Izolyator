@@ -29,14 +29,17 @@ export default async function ProductInfoPage({
   const productInfo = await getProductInfo(params.productSlug);
 
   return (
-    <div className="flex flex-col pl-4">
+    <div className="flex flex-col xl:pl-4">
       <div className="flex mb-7 items-center">
-      <Link className="mr-4" href={`/${productInfo.data[0]?.attributes?.category?.data?.attributes.slug}`}>
-        <ArrowBackIcon />
-      </Link>  
-      <h1 className={clsx(title({ size: "sm" }))}>
-        {productInfo.data[0]?.attributes.name}
-      </h1>
+        <Link
+          className="mr-4"
+          href={`/${productInfo.data[0]?.attributes?.category?.data?.attributes.slug}`}
+        >
+          <ArrowBackIcon />
+        </Link>
+        <h1 className={clsx(title({ size: "sm" }))}>
+          {productInfo.data[0]?.attributes.name}
+        </h1>
       </div>
       {productInfo.data[0] && <ProductInfo product={productInfo.data[0]} />}
     </div>
