@@ -24,7 +24,6 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
     setSearch(target.value);
   };
 
-
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsEmpty(false);
@@ -44,7 +43,7 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
         <Input
           type="text"
           variant="flat"
-          label="Поиск"
+          label="Введите название товара или артикул"
           className="mr-4 md:mr-8"
           value={search}
           onChange={onSearchChange}
