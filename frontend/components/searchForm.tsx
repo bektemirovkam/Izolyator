@@ -3,11 +3,11 @@
 import { ProductsList } from "@/components/productsList";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Product } from "@/types/product";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Link } from "@nextui-org/react";
 import clsx from "clsx";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-const MIN_LENGTH = 2
+const MIN_LENGTH = 2;
 
 interface SearchForm {
   handleSearch: (search: string) => Promise<Product[]>;
@@ -64,7 +64,14 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
       </form>
       <div className="mt-5">
         {isEmpty ? (
-          <p>По вашему запросу ничего не найдено.</p>
+          <>
+            <p>По вашему запросу ничего не найдено.</p>
+            <p>
+              Попробуйте написать ваш поисковый запрос по-другому, сократив
+              количество символов или воспользуйтесь 
+              <Link href="/">каталогом</Link>
+            </p>
+          </>
         ) : (
           <ProductsList products={products} loading={loading} />
         )}
