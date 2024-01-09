@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/bektemirovkam/Izolyator/issues"
   },
-  "homepage": "https://github.com/bektemirovkam/Izolyator#readme"
+  "homepage": "https://github.com/bektemirovkam/Izolyator#readme",
+  "dependencies": {
+    "axios": "^1.6.5"
+  }
 }
