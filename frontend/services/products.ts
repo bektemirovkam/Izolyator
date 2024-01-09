@@ -26,7 +26,7 @@ export const getProductInfo = cache(async (slug: string) => {
 
 export const searchProducts = async (search: string) => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
-    `products?filters[$or][0][vendorCode][$contains]=${search}&filters[$or][1][name][$contains]=${search}&populate=category&populate=preview&pagination[pageSize]=1000`
+    `products?filters[$or][0][vendorCode][$contains]=${search}&filters[$or][1][name][$contains]=${search}&filters[$or][2][description][$contains]=${search}&populate=category&populate=preview&pagination[pageSize]=1000`
   );
   return data;
 };
