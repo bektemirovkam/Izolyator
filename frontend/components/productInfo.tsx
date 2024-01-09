@@ -53,7 +53,7 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
     const resultHtml = removeLinksAndSaveChildren(htmlText);
 
     setText(resultHtml)
-  }, [])
+  }, [product.attributes.description])
 
   return (
     <div>
