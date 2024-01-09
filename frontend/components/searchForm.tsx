@@ -53,7 +53,7 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
         <Button
           color="default"
           className={clsx({
-            "bg-brand-color text-white": search.length > 3,
+            "bg-brand-color text-white": search.length > MIN_LENGTH,
           })}
           size={smallScreen ? "md" : "lg"}
           disabled={search.length < MIN_LENGTH}
