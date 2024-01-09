@@ -7,6 +7,8 @@ import { Button, Input } from "@nextui-org/react";
 import clsx from "clsx";
 import { ChangeEvent, FormEvent, useState } from "react";
 
+const MIN_LENGTH = 2
+
 interface SearchForm {
   handleSearch: (search: string) => Promise<Product[]>;
 }
@@ -54,7 +56,7 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
             "bg-brand-color text-white": search.length > 3,
           })}
           size={smallScreen ? "md" : "lg"}
-          disabled={search.length < 3}
+          disabled={search.length < MIN_LENGTH}
           type="submit"
         >
           Найти
