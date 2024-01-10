@@ -14,7 +14,7 @@ const adminApi = axios.create({
 const removeNbsp = async () => {
   try {
     // Получаем все продукты
-    const products = await adminApi.get('products?pagination[pageSize]=10000');
+    const products = await adminApi.get('products?pagination[pageSize]=1000');
 
     console.log('products.data.data ----> ', products.data.data.length);
     // Обновляем каждый продукт
