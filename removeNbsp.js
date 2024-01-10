@@ -16,6 +16,7 @@ const removeNbsp = async () => {
     // Получаем все продукты
     const products = await adminApi.get('products?pagination[pageSize]=10000');
 
+    console.log('products.data.data ----> ', products.data.data.length);
     // Обновляем каждый продукт
     for (const product of products.data.data) {
       const updatedDescription = product.attributes.description.replace(/&nbsp;/g, '');
