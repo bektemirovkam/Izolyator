@@ -7,7 +7,7 @@ import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
 import { getContacts } from "@/services/contacts";
 import { Footer } from "@/components/footer";
-import { getCategoriesTree } from "@/services/categories";
+import { YandexMetrika } from "@/components/yandexMetrika";
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +28,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const data = await getContacts();
-  const categories = await getCategoriesTree();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -39,6 +38,7 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
+        <YandexMetrika />
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen px-4">
             <Navbar contacts={data.data} />

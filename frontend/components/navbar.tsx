@@ -131,7 +131,10 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                     fill="rgb(82, 196, 26)"
                     className="mr-2"
                   />
-                  <span>{formatPhoneNumber(contacts.attributes.phone)}</span>
+                  <div className="flex flex-col text-center">
+                    <span>{formatPhoneNumber(contacts.attributes.phone)}</span>
+                    <span>{contacts.attributes.manager}</span>
+                  </div>
                 </Link>
               </NavbarItem>
               <NavbarItem>
@@ -145,7 +148,12 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                     fill="rgb(82, 196, 26)"
                     className="mr-2"
                   />
-                  <span>{formatPhoneNumber(contacts.attributes.whatsapp)}</span>
+                  <div className="flex flex-col text-center">
+                    <span>
+                      {formatPhoneNumber(contacts.attributes.whatsapp)}
+                    </span>
+                    <span>{contacts.attributes.manager}</span>
+                  </div>
                 </Link>
               </NavbarItem>
               <NavbarItem>
@@ -208,7 +216,10 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                     fill="rgb(82, 196, 26)"
                     className="mr-2"
                   />
-                  <span>{formatPhoneNumber(contacts.attributes.phone)}</span>
+                  <span>
+                    {formatPhoneNumber(contacts.attributes.phone)}{" "}
+                    {`  (${contacts.attributes.manager})`}
+                  </span>
                 </Link>
               </NavbarMenuItem>
               <NavbarMenuItem>
@@ -223,7 +234,10 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                     fill="rgb(82, 196, 26)"
                     className="mr-2"
                   />
-                  <span>{formatPhoneNumber(contacts.attributes.whatsapp)}</span>
+                  <span>
+                    {formatPhoneNumber(contacts.attributes.whatsapp)}
+                    {`  (${contacts.attributes.manager})`}
+                  </span>
                 </Link>
               </NavbarMenuItem>
               <NavbarMenuItem>
