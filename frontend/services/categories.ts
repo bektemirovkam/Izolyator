@@ -5,7 +5,7 @@ import { Category } from "@/types/category";
 
 export const getSiteMapCategories = cache(async () => {
   const { data } = await axios.get<{ data: Category[]; meta: MetaStrapiInfo }>(
-    "categories"
+    "categories?pagination[pageSize]=100000000"
   );
   return data;
 });

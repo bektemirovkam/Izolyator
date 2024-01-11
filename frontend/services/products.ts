@@ -5,7 +5,7 @@ import { Product } from "@/types/product";
 
 export const getSiteMapProducts = cache(async () => {
   const { data } = await axios.get<{ data: Product[]; meta: MetaStrapiInfo }>(
-    `products?fields[0]=slug&populate=category`
+    `products?fields[0]=slug&populate=category&pagination[pageSize]=100000000`
   );
   return data;
 });
