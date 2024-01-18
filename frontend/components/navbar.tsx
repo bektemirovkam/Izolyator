@@ -45,9 +45,9 @@ export const Navbar = ({ contacts }: NavbarProps) => {
   return (
     <div>
       <p className="hidden xl:block text-center text-sm bg-amber-500 text-black p-2 rounded-b-lg">
-        В данный момент сайт находится в стадии разработки, отладки и наполнения
-        контентом. Для уточнения актуальной информации по товарам, обращаться по
-        телефону{" "}
+        В данный момент на сайте представлена не вся поставляемая компанией
+        продукция, так как сайт находится в стадии наполнения контентом. Для
+        уточнения актуальной информации по товарам, обращаться по телефону{" "}
         <Link
           className="text-sm text-black underline"
           href={`tel:${contacts.attributes.phone}`}
