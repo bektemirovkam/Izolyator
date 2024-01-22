@@ -30,7 +30,7 @@ export default async function RootLayout({
   const data = await getContacts();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ru" suppressHydrationWarning>
       <head />
       <body
         className={clsx(
