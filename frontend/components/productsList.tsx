@@ -9,7 +9,7 @@ interface ProductsListProps {
 
 export const ProductsList = ({ products, loading }: ProductsListProps) => {
   return (
-    <div className="grid grid-cols-2 gap-3 lg:grid-cols-5 md:grid-cols-3">
+    <div className="grid grid-cols-2 gap-3 2xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-3">
       {loading ? (
         <Loader />
       ) : (
