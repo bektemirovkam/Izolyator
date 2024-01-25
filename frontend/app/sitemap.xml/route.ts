@@ -34,7 +34,7 @@ function generateSiteMap(products: Product[], categories: Category[]) {
        .map((p) => {
          return `
            <url>
-               <loc>${`${DOMEN}/${p.attributes.category.data.attributes.slug}/${p.attributes.slug}`}</loc>
+               <loc>${`${DOMEN}/${p?.attributes.category.data?.attributes?.slug}/${p?.attributes.slug}`}</loc>
            </url>
          `;
        })
