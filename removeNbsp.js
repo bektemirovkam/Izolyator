@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const API_URL = "https://prompostavki.kz/cms"
-const ADMIN_API_TOKEN = "8008fcf50bed1f809af8e98574684d3872e4d8c65edb3f5b878d3a4395d792feb1dc74326f38d35fd6937dfc98a392772c2d594584cb1cc34b7d706a8248d6b984662e74f50b77051d7b160e4d30ac52ddc95e976a2cbdf1be52d9c78eab2039c7379cf622b16baeadbe1741b3be884b8d37bbaa7e4f4fd8e33f56616dc5ae42"
+const ADMIN_API_TOKEN = "8834860276e556101dbc2568344c20f15f388fec684fb75a953f80d4380f946fb96bf99efa6f4aebf32115cf27cd2e21210260ea491d309800bb6f5c9925c2c8aafd02d4c9d5faae30ac178e68972cc180de26770f12337b81a9ef17ea1d8a212b8d07442b495e9b3bcd88022a8812204ff718dbdf5b3b9761fd8641a2b63eb4"
 
 const adminApi = axios.create({
     baseURL: `${API_URL}/api/`,
