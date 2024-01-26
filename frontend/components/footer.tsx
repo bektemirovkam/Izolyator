@@ -17,7 +17,7 @@ export const Footer = () => {
           <li key={item.href} className="mr-2 last:mr-0">
             <Link
               className={clsx(
-                "font-normal",
+                "font-bold",
                 linkStyles({ color: "foreground" }),
                 "text-xs sm:text-sm md:text-base",
                 {

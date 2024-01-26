@@ -17,7 +17,7 @@ export default async function HomePage() {
         <div className="flex-auto">
           <div className="flex flex-col xl:pl-4">
             <h1 className={clsx(title({ size: "sm" }), "mb-7")}>
-              Основные категории
+              Категории товаров
             </h1>
             <CategoriesList categories={topCategories.data} />
           </div>
