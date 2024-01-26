@@ -76,7 +76,7 @@ const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
         title="Каталог продукции"
         key="1"
       >
-        <ul className="border-small p-2 shadow-medium max-h-[120vh] overflow-y-scroll catalog-menu">
+        <ul className="border-small p-2 shadow-medium max-h-[100vh] overflow-y-scroll catalog-menu">
           {categories.map((c) => (
             <CategorySideBarItem
               category={c}
