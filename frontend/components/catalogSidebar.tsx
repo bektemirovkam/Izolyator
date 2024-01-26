@@ -63,7 +63,7 @@ const CatalogSidebar = ({ categories }: CatalogSidebarProps) => {
 
   return (
     <Accordion
-      className="w-full px-0"
+      className="w-full px-0 bg-white"
       selectedKeys={collapsed ? undefined : ["1"]}
     >
       <AccordionItem

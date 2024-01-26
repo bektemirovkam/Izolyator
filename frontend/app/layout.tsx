@@ -8,6 +8,7 @@ import clsx from "clsx";
 import { getContacts } from "@/services/contacts";
 import { Footer } from "@/components/footer";
 import { YandexMetrika } from "@/components/yandexMetrika";
+import { Image } from "@nextui-org/react";
 
 export const metadata: Metadata = {
   title: {
@@ -43,6 +44,7 @@ export default async function RootLayout({
           <div className="relative flex flex-col h-screen px-4">
             <Navbar contacts={data.data} />
             {children}
+            <Image src="./bg.png" alt="Баннер" width={"100%"} />
             <Footer />
           </div>
         </Providers>
