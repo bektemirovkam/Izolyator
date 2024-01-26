@@ -39,7 +39,7 @@ export default async function ProductInfoPage({
           className="mr-4"
           href={
             returnUrl
-              ? `/${returnUrl}`
+              ? `/${returnUrl}#${params.productSlug}`
               : `/${productInfo.data[0]?.attributes?.category?.data?.attributes.slug}`
           }
         >

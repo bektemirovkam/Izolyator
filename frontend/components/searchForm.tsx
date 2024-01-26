@@ -1,7 +1,7 @@
 "use client";
 
 import { ProductsList } from "@/components/productsList";
-import { SearchProvider, useSearchContext } from "@/context/searchContext";
+import { useSearchContext } from "@/context/searchContext";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Product } from "@/types/product";
 import { Button, Input, Link } from "@nextui-org/react";
