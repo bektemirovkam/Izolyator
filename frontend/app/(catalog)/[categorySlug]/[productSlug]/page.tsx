@@ -7,6 +7,7 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Metadata } from "next";
+import { useSearchParams } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -23,17 +24,24 @@ export async function generateMetadata({
 
 export default async function ProductInfoPage({
   params,
+  searchParams,
 }: {
   params: { productSlug: string };
+  searchParams: { returnUrl?: string };
 }) {
   const productInfo = await getProductInfo(params.productSlug);
+  const returnUrl = searchParams.returnUrl;
 
   return (
     <div className="flex flex-col xl:pl-4">
       <div className="flex mb-7 items-center">
         <Link
           className="mr-4"
-          href={`/${productInfo.data[0]?.attributes?.category?.data?.attributes.slug}`}
+          href={
+            returnUrl
+              ? `/${returnUrl}`
+              : `/${productInfo.data[0]?.attributes?.category?.data?.attributes.slug}`
+          }
         >
           <ArrowBackIcon />
         </Link>

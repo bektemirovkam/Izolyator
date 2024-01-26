@@ -1,11 +1,12 @@
 "use client";
 
 import { ProductsList } from "@/components/productsList";
+import { SearchProvider, useSearchContext } from "@/context/searchContext";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Product } from "@/types/product";
 import { Button, Input, Link } from "@nextui-org/react";
 import clsx from "clsx";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 const MIN_LENGTH = 2;
 
@@ -14,10 +15,16 @@ interface SearchForm {
 }
 
 export const SearchForm = ({ handleSearch }: SearchForm) => {
-  const [search, setSearch] = useState("");
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [isEmpty, setIsEmpty] = useState(false);
+  const {
+    search,
+    setSearch,
+    products,
+    setProducts,
+    loading,
+    setLoading,
+    isEmpty,
+    setIsEmpty,
+  } = useSearchContext();
 
   const smallScreen = useMediaQuery("(max-width: 650px)");
 
@@ -28,6 +35,7 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setProducts([]);
     setIsEmpty(false);
     setLoading(true);
     const products = await handleSearch(search);
@@ -73,7 +81,7 @@ export const SearchForm = ({ handleSearch }: SearchForm) => {
             </p>
           </>
         ) : (
-          <ProductsList products={products} loading={loading} />
+          <ProductsList products={products} loading={loading} isSearch />
         )}
       </div>
     </div>

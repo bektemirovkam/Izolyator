@@ -5,9 +5,14 @@ import { Card, CardFooter, Image, Link } from "@nextui-org/react";
 interface ProductsListProps {
   products: Product[];
   loading?: boolean;
+  isSearch?: boolean;
 }
 
-export const ProductsList = ({ products, loading }: ProductsListProps) => {
+export const ProductsList = ({
+  products,
+  loading,
+  isSearch,
+}: ProductsListProps) => {
   return (
     <div className="grid grid-cols-2 gap-3 2xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-3">
       {loading ? (
@@ -16,9 +21,12 @@ export const ProductsList = ({ products, loading }: ProductsListProps) => {
         products.map((p) => {
           return (
             <Link
-              href={`/${p.attributes.category.data.attributes.slug}/${p.attributes.slug}`}
+              href={`/${p.attributes.category.data.attributes.slug}/${
+                p.attributes.slug
+              }${isSearch ? "?returnUrl=search" : ""}`}
               key={p.id}
               className="block h-full"
+              id={p.attributes.slug}
             >
               <Card
                 isFooterBlurred
