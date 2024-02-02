@@ -40,6 +40,9 @@ export default async function DeliveryPage() {
             <span className="font-bold">БИК:</span> CASPKZKA
             <br />
             <span className="font-bold">Номер счёта:</span> KZ70722S000029004589
+            <br />
+            <span className="font-bold">Свидетельство НДС:</span> Серия 48001 №
+            1115632
           </p>
         </div>
 
