@@ -1,3 +1,4 @@
+import { BreadCrumbs } from "@/components/breadCrumbs";
 import { CategoriesList } from "@/components/categoriesList";
 import { ArrowBackIcon } from "@/components/icons";
 import { title } from "@/components/primitives";
@@ -29,20 +30,21 @@ export default async function CategoryInfoPage({
 }) {
   const categoryInfo = await getCategoryInfo(params.categorySlug);
 
-  const parentCategorySlug = categoryInfo.data[0]?.attributes.parent?.data?.attributes.slug
-
+  const parentCategorySlug =
+    categoryInfo.data[0]?.attributes.parent?.data?.attributes.slug;
 
   if (categoryInfo.data[0]?.attributes.child_categories?.data.length) {
-
     return (
       <div className="flex flex-col xl:pl-4">
-
         <div className="flex mb-7 items-center">
-          <Link className="mr-4" href={`${parentCategorySlug ? `/${parentCategorySlug}` : "/"}`}>
+          <Link
+            className="mr-4"
+            href={`${parentCategorySlug ? `/${parentCategorySlug}` : "/"}`}
+          >
             <ArrowBackIcon />
-          </Link>  
+          </Link>
           <h1 className={clsx(title({ size: "sm" }))}>
-          {categoryInfo.data[0].attributes.name}
+            {categoryInfo.data[0].attributes.name}
           </h1>
         </div>
 
@@ -60,13 +62,28 @@ export default async function CategoryInfoPage({
   return (
     <div className="flex flex-col xl:pl-4">
       <div className="flex mb-7 items-center">
-        <Link className="mr-4" href={`${parentCategorySlug ? `/${parentCategorySlug}` : "/"}`}>
+        <Link
+          className="mr-4"
+          href={`${parentCategorySlug ? `/${parentCategorySlug}` : "/"}`}
+        >
           <ArrowBackIcon />
-        </Link>  
+        </Link>
         <h1 className={clsx(title({ size: "sm" }))}>
           {categoryInfo.data[0]?.attributes.name}
         </h1>
       </div>
+      {/* <BreadCrumbs
+        breadCrumbs={[
+          { link: "/", title: "Главная" },
+          { link: "/t1", title: "Категория" },
+          {
+            link: "/t2",
+            title: "КатегорияКатегорияКатегорияКатегорияКатегория",
+          },
+          { link: "/t3", title: "КатегорияКатегория Категория Категория" },
+          { link: "/t4", title: "Категория КатегорияКатегория" },
+        ]}
+      /> */}
       <ProductsList products={products.data} />
     </div>
   );
