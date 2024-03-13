@@ -1,47 +1,63 @@
 "use client";
 
-import Link from "next/link";
+import React, { ReactNode } from "react";
+
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
+import Link from "next/link";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-export interface BreadCrumb {
-  link: string;
+export interface BreadCrumbPathName {
   title: string;
+  link: string;
 }
 
-interface BreadCrumbsProps {
-  breadCrumbs: BreadCrumb[];
+interface BreadCrumbProps {
+  homeElement: ReactNode;
+  separator: ReactNode;
+  containerClasses?: string;
+  listClasses?: string;
+  activeClasses?: string;
+  pathNames: BreadCrumbPathName[];
 }
 
-export const BreadCrumbs = ({ breadCrumbs }: BreadCrumbsProps) => {
-  const pathname = usePathname();
+export const Breadcrumbs = ({
+  homeElement,
+  separator,
+  containerClasses,
+  listClasses,
+  activeClasses,
+  pathNames,
+}: BreadCrumbProps) => {
+  const paths = usePathname();
+  const isDesktop = useMediaQuery("(min-width: 1040px)");
+
+  if (!isDesktop) {
+    return null;
+  }
 
   return (
-    <nav className="mb-4">
-      <ul className="flex gap-3">
-        {breadCrumbs.map((b, index) => (
-          <li
-            key={b.title}
-            className={"flex-auto flex justify-center items-center gap-1"}
-          >
-            {index !== 0 && <span>/ </span>}
-            <Link
-              className={clsx(
-                "text-xs sm:text-sm md:text-base",
-                {
-                  "text-brand-color": false,
-                },
-                "truncate",
-                "underline"
-                // `max-w-[${Math.floor(100 / breadCrumbs.length / 5)}%]`
-              )}
-              href={b.link}
-            >
-              {b.title}
-            </Link>
-          </li>
-        ))}
+    <div className="overflow-hidden">
+      <ul className={containerClasses}>
+        <li className={listClasses}>
+          <Link href={"/"}>{homeElement}</Link>
+        </li>
+        {pathNames.length > 0 && separator}
+        {pathNames.map((pathItem, index) => {
+          let itemClasses =
+            paths === pathItem.link
+              ? `${listClasses} ${activeClasses}`
+              : listClasses;
+
+          return (
+            <React.Fragment key={index}>
+              <li className={itemClasses}>
+                <Link href={pathItem.link}>{pathItem.title}</Link>
+              </li>
+              {pathNames.length !== index + 1 && separator}
+            </React.Fragment>
+          );
+        })}
       </ul>
-    </nav>
+    </div>
   );
 };
