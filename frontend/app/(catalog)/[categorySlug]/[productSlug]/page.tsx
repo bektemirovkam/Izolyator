@@ -1,15 +1,11 @@
 import { BreadCrumbPathName, Breadcrumbs } from "@/components/breadCrumbs";
-import { ArrowBackIcon } from "@/components/icons";
 import { title } from "@/components/primitives";
 import { ProductBackBtn } from "@/components/productBackBtn";
 import { ProductInfo } from "@/components/productInfo";
 import { getProductInfo } from "@/services/products";
-import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Metadata } from "next";
-import { useSearchParams } from "next/navigation";
 
 export async function generateMetadata({
   params,

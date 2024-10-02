@@ -17,11 +17,10 @@ export default async function ContactsPage() {
       <div className="max-w-2xl mx-auto">
         <div className="mb-8 leading-8">
           <p className="text-gray-700">
-            <span className="font-bold">Юридический адрес:</span>{" "}
-            {data.data.attributes.legal_address}
-            <br />
-            <span className="font-bold">Почтовый адрес:</span>
-            {data.data.attributes.mailing_address}
+            <span className="lg:whitespace-nowrap">
+              <span className="font-bold">Юридический/Почтовый адрес:</span>
+              {data.data.attributes.mailing_address}
+            </span>
             <br />
             <span className="font-bold">Отдел продаж мобильный:</span>
             <Link href={`tel:${data.data.attributes.phone}`} className="mx-1">
@@ -52,3 +51,5 @@ export default async function ContactsPage() {
     </div>
   );
 }
+
+export const revalidate = 300;
