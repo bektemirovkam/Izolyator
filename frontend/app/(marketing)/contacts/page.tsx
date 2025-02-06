@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "Контакты",
 };
 
+// TODO: сделать через цмс
+
 export default async function ContactsPage() {
   const data = await getContacts();
 
@@ -38,6 +40,13 @@ export default async function ContactsPage() {
             {data.data.attributes.manager}
             <br />
             <span className="font-bold">Электронная почта:</span>
+            <Link
+              href={`mailto:enzakaz@bk.ru`}
+              className="mx-1"
+            >
+              enzakaz@bk.ru
+            </Link>
+            или
             <Link
               href={`mailto:${data.data.attributes.email}`}
               className="mx-1"

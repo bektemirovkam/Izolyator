@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Оплата и доставка",
 };
 
+
+// TODO: сделать через цмс
+
 export default async function DeliveryPage() {
   const data = await getContacts();
 
@@ -25,24 +28,29 @@ export default async function DeliveryPage() {
         <div className="mb-8">
           <h2 className="text-2xl font-bold mb-2">Реквизиты компании:</h2>
           <p className="text-gray-700">
-            <span className="font-bold">Компания:</span> ИП
-            &quot;ПромПоставки&quot;
+            <span className="font-bold">Компания:</span> ТОО 
+            &quot;СпецЭнергоПоставка&quot;
             <br />
-            <span className="font-bold">Адрес:</span>
-            {data.data.attributes.legal_address}
+            <span className="font-bold">Юридический адрес:</span>
+            150000, РК, г. Петропавловск, ул. Батыр Баяна 67 – 89
             <br />
-            <span className="font-bold">БИН (ИИН):</span> 801208301554
+            <span className="font-bold">Почтовый адрес:</span>
+            150000, РК, г. Петропавловск, ул. Батыр Баяна 67 – 89
             <br />
-            <span className="font-bold">Банк:</span> АО &quot;Kaspi Bank&quot;
+            <span className="font-bold">БИН:</span> 250140010952
             <br />
-            <span className="font-bold">КБе:</span> 19
+            <span className="font-bold">Банк:</span> АО &quot;Народный Банк Казахстана&quot;
             <br />
-            <span className="font-bold">БИК:</span> CASPKZKA
+            <span className="font-bold">КБе:</span> 17
             <br />
-            <span className="font-bold">Номер счёта:</span> KZ70722S000029004589
+            <span className="font-bold">БИК:</span> HSBKKZKX
+            <br />
+            <span className="font-bold">Номер счёта (в тенге):</span> KZ28601A251015539651
+            <br />
+            <span className="font-bold">Номер счёта (в рублях):</span> KZ49601A251015539661
             <br />
             <span className="font-bold">Свидетельство НДС:</span> Серия 48001 №
-            1115632
+            1116230 От 14 января 2025
           </p>
         </div>
 

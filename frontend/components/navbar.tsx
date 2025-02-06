@@ -156,7 +156,19 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                   </div>
                 </Link>
               </NavbarItem>
-              <NavbarItem>
+              <NavbarItem className="flex flex-col">
+                <Link
+                  aria-label="Email"
+                  href={`mailto:enzakaz@bk.ru`}
+                  className="text-foreground text-xs font-bold"
+                >
+                  <EmailIcon
+                    size={20}
+                    fill="rgb(82, 196, 26)"
+                    className="mr-2"
+                  />
+                  <span>enzakaz@bk.ru</span>
+                </Link>
                 <Link
                   aria-label="Email"
                   href={`mailto:${contacts.attributes.email}`}
@@ -238,6 +250,21 @@ export const Navbar = ({ contacts }: NavbarProps) => {
                     {formatPhoneNumber(contacts.attributes.whatsapp)}
                     {`  (${contacts.attributes.manager})`}
                   </span>
+                </Link>
+              </NavbarMenuItem>
+              <NavbarMenuItem>
+                <Link
+                  aria-label="Email"
+                  href={`mailto:enzakaz@bk.ru`}
+                  className="text-foreground text-xs font-bold"
+                  onClick={closeMenu}
+                >
+                  <EmailIcon
+                    size={20}
+                    fill="rgb(82, 196, 26)"
+                    className="mr-2"
+                  />
+                  <span>enzakaz@bk.ru</span>
                 </Link>
               </NavbarMenuItem>
               <NavbarMenuItem>

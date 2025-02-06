@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "ПромПоставки",
+  name: "СпецЭнергоПоставка",
   description:
     "Ваш надежный партнер в области поставок изоляторов, ОПН, РВО и других необходимых сопутствующих товаров",
   navItems: [

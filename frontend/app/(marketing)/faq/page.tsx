@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "Как заказать",
 };
 
+// TODO: сделать через цмс
+
 export default async function FaqPage() {
   const data = await getContacts();
 
@@ -20,7 +22,11 @@ export default async function FaqPage() {
             <p className="text-gray-700">
               <span className="font-bold">Отправить запрос</span> на электронную
               почту, по всем интересующим Вас позициям –{" "}
-              <Link href={`mailto:${data.data.attributes.email}`}>
+              <Link href={`mailto:enzakaz@bk.ru`} className="mr-1">
+                {`enzakaz@bk.ru`}
+              </Link>
+              или 
+              <Link className="ml-1" href={`mailto:${data.data.attributes.email}`}>
                 {data.data.attributes.email}
               </Link>
               . Наши менеджеры предоставят вам КП с указание цены и сроков
