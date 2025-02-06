@@ -80,12 +80,12 @@ export const Navbar = ({ contacts }: NavbarProps) => {
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent className="basis-1/5 sm:basis-full">
-          <NavbarBrand as="li" className="basis-60 xl:basis-80 flex-grow-0">
+          <NavbarBrand as="li" className="basis-60 xl:basis-80 flex-grow-0 justify-end">
             <Link className="flex justify-start items-center gap-1" href="/">
               <Image
                 src="/logo.png"
                 alt="Промоставки"
-                width={240}
+                width={290}
                 height={40}
               />
             </Link>
